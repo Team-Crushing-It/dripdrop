@@ -57,16 +57,16 @@ class App extends StatelessWidget {
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
           if (state is AuthenticationInitial) {
-            return Text("Splash");
+            return LoginPage(userRepository: userRepository);
           }
           if (state is AuthenticationSuccess) {
-            return Text("Home");
+            return LoginPage(userRepository: userRepository);
           }
           if (state is AuthenticationFailure) {
             return LoginPage(userRepository: userRepository);
           }
           if (state is AuthenticationInProgress) {
-            return Text("Loading");
+            return LoginPage(userRepository: userRepository);
           } else {
             return null;
           }
