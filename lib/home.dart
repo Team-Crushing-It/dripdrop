@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_animated_linechart/fl_animated_linechart.dart';
@@ -10,18 +11,37 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with FakeChartSeries {
   int chartIndex = 1;
+  final databaseReference = Firestore.instance;
+  var titleApp = "h";
+  @override
+  void initState() {
+    titleApp = "no";
+    print("hi");
+    databaseReference
+        .collection("realtimePoints")
+        .getDocuments()
+        .then((QuerySnapshot snapshot) {
+      snapshot.documents.forEach((f) {
+        print('${f.data}');
+        Map<String, dynamic> codedData = f.data;
+        titleApp = codedData["temperature"];
+        //wordsAvailable.add(codedData["name"]);
+      });
+    });
+    titleApp = "ni";
+  }
 
   @override
   Widget build(BuildContext context) {
     LineChart chart;
-
+    initState();
     chart = LineChart.fromDateTimeMaps(
         [createLineAlmostSaveValues()], [Colors.green], ['C'],
         tapTextFontWeight: FontWeight.w400);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("hi"),
+        title: Text(titleApp),
       ),
       body: Container(
         child: Column(

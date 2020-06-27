@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "643021568038",
+    "firebase_url": "https://drip-drop-2dcb1.firebaseio.com",
+    "project_id": "drip-drop-2dcb1",
+    "storage_bucket": "drip-drop-2dcb1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643021568038:android:a90dc581898d2d039ecee7",
+        "android_client_info": {
+          "package_name": "com.tci.dripdrop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643021568038-uh3a90u42bcr77ft58qfstq5gauiaajv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoRmlo5IDNvq_RbFTqO-FN37-Z-Pz56gs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643021568038-uh3a90u42bcr77ft58qfstq5gauiaajv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
