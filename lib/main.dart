@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'user_repository.dart';
-
 import 'authentication_bloc.dart';
 import 'authentication_event.dart';
 import 'authentication_state.dart';
 import 'login_page.dart';
+import 'home.dart';
 
 class SimpleBlocDelegate extends BlocDelegate {
   @override
@@ -60,7 +59,7 @@ class App extends StatelessWidget {
             return Text("Splash");
           }
           if (state is AuthenticationSuccess) {
-            return Text("Home");
+            return HomePage();
           }
           if (state is AuthenticationFailure) {
             return LoginPage(userRepository: userRepository);
