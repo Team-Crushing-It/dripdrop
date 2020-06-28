@@ -25,10 +25,7 @@ class _GraphState extends State<Graph> with FakeChartSeries {
   @override
   void initState() {
     super.initState();
-    databaseReference
-        .collection("realtimePoints")
-        .getDocuments()
-        .then((QuerySnapshot snapshot) {
+    databaseReference.collection("realtimePoints").getDocuments().then((QuerySnapshot snapshot) {
       snapshot.documents.forEach((f) {
         Map<String, dynamic> codedData = f.data;
         temperatureValue = codedData["temperature"];
@@ -43,11 +40,7 @@ class _GraphState extends State<Graph> with FakeChartSeries {
     });
 
     usageDates = [];
-    databaseReference
-        .collection("waterUsage")
-        .orderBy('date')
-        .getDocuments()
-        .then((QuerySnapshot snapshot) {
+    databaseReference.collection("waterUsage").orderBy('date').getDocuments().then((QuerySnapshot snapshot) {
       snapshot.documents.forEach((f) {
         Map<String, dynamic> codedData = f.data;
         usageNumbers.add(codedData["waterused"]);
@@ -122,10 +115,7 @@ class _GraphState extends State<Graph> with FakeChartSeries {
         bottomTitles: SideTitles(
           showTitles: true,
           reservedSize: 22,
-          textStyle: const TextStyle(
-              color: Color(0xff68737d),
-              fontWeight: FontWeight.bold,
-              fontSize: 16),
+          textStyle: const TextStyle(color: Color(0xff68737d), fontWeight: FontWeight.bold, fontSize: 16),
           getTitles: (value) {
             switch (value.toInt()) {
               case 2:
@@ -161,9 +151,7 @@ class _GraphState extends State<Graph> with FakeChartSeries {
           margin: 12,
         ),
       ),
-      borderData: FlBorderData(
-          show: true,
-          border: Border.all(color: const Color(0xff37434d), width: 1)),
+      borderData: FlBorderData(show: true, border: Border.all(color: const Color(0xff37434d), width: 1)),
       minX: 0,
       maxX: 11,
       minY: 0,
@@ -188,8 +176,7 @@ class _GraphState extends State<Graph> with FakeChartSeries {
           ),
           belowBarData: BarAreaData(
             show: true,
-            colors:
-                gradientColors.map((color) => color.withOpacity(0.3)).toList(),
+            colors: gradientColors.map((color) => color.withOpacity(0.3)).toList(),
           ),
         ),
       ],
@@ -220,10 +207,7 @@ class _GraphState extends State<Graph> with FakeChartSeries {
         bottomTitles: SideTitles(
           showTitles: true,
           reservedSize: 22,
-          textStyle: const TextStyle(
-              color: Color(0xff68737d),
-              fontWeight: FontWeight.bold,
-              fontSize: 16),
+          textStyle: const TextStyle(color: Color(0xff68737d), fontWeight: FontWeight.bold, fontSize: 16),
           getTitles: (value) {
             switch (value.toInt()) {
               case 2:
@@ -259,9 +243,7 @@ class _GraphState extends State<Graph> with FakeChartSeries {
           margin: 12,
         ),
       ),
-      borderData: FlBorderData(
-          show: true,
-          border: Border.all(color: const Color(0xff37434d), width: 1)),
+      borderData: FlBorderData(show: true, border: Border.all(color: const Color(0xff37434d), width: 1)),
       minX: 0,
       maxX: 11,
       minY: 0,
@@ -279,10 +261,8 @@ class _GraphState extends State<Graph> with FakeChartSeries {
           ],
           isCurved: true,
           colors: [
-            ColorTween(begin: gradientColors[0], end: gradientColors[1])
-                .lerp(0.2),
-            ColorTween(begin: gradientColors[0], end: gradientColors[1])
-                .lerp(0.2),
+            ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2),
+            ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2),
           ],
           barWidth: 5,
           isStrokeCapRound: true,
@@ -290,12 +270,8 @@ class _GraphState extends State<Graph> with FakeChartSeries {
             show: false,
           ),
           belowBarData: BarAreaData(show: true, colors: [
-            ColorTween(begin: gradientColors[0], end: gradientColors[1])
-                .lerp(0.2)
-                .withOpacity(0.1),
-            ColorTween(begin: gradientColors[0], end: gradientColors[1])
-                .lerp(0.2)
-                .withOpacity(0.1),
+            ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2).withOpacity(0.1),
+            ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2).withOpacity(0.1),
           ]),
         ),
       ],

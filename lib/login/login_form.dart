@@ -42,9 +42,7 @@ class _LoginFormState extends State<LoginForm> {
             child: Column(
               children: [
                 TextFormField(
-                  decoration: InputDecoration(
-                    labelText: "USERNAME"
-                  ),
+                  decoration: InputDecoration(labelText: "USERNAME"),
                   controller: _usernameController,
                 ),
                 SizedBox(height: 15),
@@ -54,37 +52,89 @@ class _LoginFormState extends State<LoginForm> {
                   obscureText: true,
                 ),
                 SizedBox(height: 40),
-                RaisedButton(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-                  onPressed: state is! LoginInProgress ? _onLoginButtonPressed : null,
-                  textColor: Colors.white,
-                  padding: const EdgeInsets.all(0.0),
-                  child: Container(
-                    width: double.maxFinite,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      gradient: LinearGradient(
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                        colors: <Color>[
-                          Color(0xFF06AF24),
-                          Color(0xFF07B023),
-                          Color(0xFFBCF1B7),
-                        ],
-                      ),
+//                RaisedButton(
+//                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+//                  onPressed: state is! LoginInProgress ? _onLoginButtonPressed : null,
+//                  textColor: Colors.white,
+//                  padding: const EdgeInsets.all(0.0),
+//                  child: Container(
+//                    width: double.maxFinite,
+//                    decoration: BoxDecoration(
+//                      borderRadius: BorderRadius.circular(5),
+//                      gradient: LinearGradient(
+//                        begin: Alignment.bottomCenter,
+//                        end: Alignment.topCenter,
+//                        colors: <Color>[
+//                          Color(0xFF06AF24),
+//                          Color(0xFF07B023),
+//                          Color(0xFFBCF1B7),
+//                        ],
+//                      ),
+//                    ),
+//                    padding: const EdgeInsets.all(10.0),
+//                    child: Center(
+//                      child: Padding(
+//                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+//                        child: const Text('LOGIN', style: TextStyle(fontSize: 20)),
+//                      ),
+//                    ),
+//                  ),
+//                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      "Remember me?",
+                      style: Theme.of(context).textTheme.bodyText1,
                     ),
-                    padding: const EdgeInsets.all(10.0),
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: const Text('LOGIN', style: TextStyle(fontSize: 20)),
-                      ),
+                    Switch(
+                      value: true,
+                      activeColor: Theme.of(context).accentColor,
+                      inactiveThumbColor: Theme.of(context).accentColor,
+                      activeTrackColor: Theme.of(context).cardColor,
+                      inactiveTrackColor: Theme.of(context).cardColor,
+                      onChanged: (bool boolean) {},
                     ),
-                  ),
+                  ],
                 ),
                 Container(
                   child: state is LoginInProgress ? CircularProgressIndicator() : null,
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Theme.of(context).accentColor,
+                          width: 3,
+                        ),
+                        borderRadius: BorderRadius.circular(6)
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      child: FlatButton(
+                        child: Text("LOGIN", style: Theme.of(context).textTheme.headline6,),
+                        color: Theme.of(context).accentColor,
+                        onPressed: state is! LoginInProgress ? _onLoginButtonPressed : null,
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Theme.of(context).accentColor,
+                            width: 3,
+                          ),
+                          borderRadius: BorderRadius.circular(6)
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      child: FlatButton(
+                        child: Text("REGISTER", style: Theme.of(context).textTheme.headline6,),
+                        color: Theme.of(context).accentColor,
+                        onPressed: () {},
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           );
