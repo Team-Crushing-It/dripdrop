@@ -25,11 +25,6 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(child: Switch(
-                value: true,
-                activeTrackColor: Color(0xFFBDC0C7),
-                onChanged: (bool boolean) {},
-              )),
               Image(image: AssetImage("assets/logo-stacked.png")),
               BlocProvider(
                 create: (context) {
