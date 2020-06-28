@@ -84,7 +84,8 @@ class App extends StatelessWidget {
             return Container();
           }
           if (state is AuthenticationSuccess) {
-            return HeroAnimation();
+            // return HeroAnimation();
+            return HomePage();
           }
           if (state is AuthenticationFailure) {
             return LoginPage(userRepository: userRepository);
