@@ -82,6 +82,8 @@ flutter:
        - asset: fonts/Nasalization-Regular.ttf
    - family: Corp Trial
      fonts:
+       - asset: fonts/CorpTrial-Light.otf
+         weight: 300
        - asset: fonts/CorpTrial-Bold.otf
          weight: 700
    - family: Software Tester 7
