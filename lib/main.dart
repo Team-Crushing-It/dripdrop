@@ -7,6 +7,7 @@ import 'authentication/authentication_event.dart';
 import 'authentication/authentication_state.dart';
 import 'pages/login_page.dart';
 import 'pages/home_page.dart';
+import 'package:dripdrop/pages/drop_page.dart';
 
 class SimpleBlocDelegate extends BlocDelegate {
   @override
@@ -80,10 +81,10 @@ class App extends StatelessWidget {
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
           if (state is AuthenticationInitial) {
-            return Text("Splash");
+            return Container();
           }
           if (state is AuthenticationSuccess) {
-            return HomePage();
+            return HeroAnimation();
           }
           if (state is AuthenticationFailure) {
             return LoginPage(userRepository: userRepository);
