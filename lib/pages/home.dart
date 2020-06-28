@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dripdrop/widgets/leaderboard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -25,10 +26,7 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
   @override
   void initState() {
     super.initState();
-    databaseReference
-        .collection("realtimePoints")
-        .getDocuments()
-        .then((QuerySnapshot snapshot) {
+    databaseReference.collection("realtimePoints").getDocuments().then((QuerySnapshot snapshot) {
       snapshot.documents.forEach((f) {
         Map<String, dynamic> codedData = f.data;
         temperatureValue = codedData["temperature"];
@@ -43,11 +41,7 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
     });
 
     usageDates = [];
-    databaseReference
-        .collection("waterUsage")
-        .orderBy('date')
-        .getDocuments()
-        .then((QuerySnapshot snapshot) {
+    databaseReference.collection("waterUsage").orderBy('date').getDocuments().then((QuerySnapshot snapshot) {
       snapshot.documents.forEach((f) {
         Map<String, dynamic> codedData = f.data;
         usageNumbers.add(codedData["waterused"]);
@@ -63,49 +57,50 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
     print(usageNumbers);
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Thing"),
-        ),
-        body: Stack(
-          children: <Widget>[
-            AspectRatio(
-              aspectRatio: 1.70,
-              child: Container(
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(18),
+      appBar: AppBar(
+        title: Text("Thing"),
+      ),
+      body: Column(
+        children: [
+          Stack(
+            children: <Widget>[
+              AspectRatio(
+                aspectRatio: 1.70,
+                child: Container(
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(18),
+                      ),
+                      color: Color(0xff232d37)),
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 18.0, left: 12.0, top: 24, bottom: 12),
+                    child: LineChart(
+                      showAvg ? avgData() : mainData(),
                     ),
-                    color: Color(0xff232d37)),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      right: 18.0, left: 12.0, top: 24, bottom: 12),
-                  child: LineChart(
-                    showAvg ? avgData() : mainData(),
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              width: 60,
-              height: 34,
-              child: FlatButton(
-                onPressed: () {
-                  setState(() {
-                    showAvg = !showAvg;
-                  });
-                },
-                child: Text(
-                  'avg',
-                  style: TextStyle(
-                      fontSize: 12,
-                      color: showAvg
-                          ? Colors.white.withOpacity(0.5)
-                          : Colors.white),
+              SizedBox(
+                width: 60,
+                height: 34,
+                child: FlatButton(
+                  onPressed: () {
+                    setState(() {
+                      showAvg = !showAvg;
+                    });
+                  },
+                  child: Text(
+                    'avg',
+                    style: TextStyle(fontSize: 12, color: showAvg ? Colors.white.withOpacity(0.5) : Colors.white),
+                  ),
                 ),
               ),
-            ),
-          ],
-        ));
+            ],
+          ),
+          Leaderboard(),
+        ],
+      ),
+    );
   }
 
   LineChartData mainData() {
@@ -131,10 +126,7 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
         bottomTitles: SideTitles(
           showTitles: true,
           reservedSize: 22,
-          textStyle: const TextStyle(
-              color: Color(0xff68737d),
-              fontWeight: FontWeight.bold,
-              fontSize: 16),
+          textStyle: const TextStyle(color: Color(0xff68737d), fontWeight: FontWeight.bold, fontSize: 16),
           getTitles: (value) {
             switch (value.toInt()) {
               case 2:
@@ -170,9 +162,7 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
           margin: 12,
         ),
       ),
-      borderData: FlBorderData(
-          show: true,
-          border: Border.all(color: const Color(0xff37434d), width: 1)),
+      borderData: FlBorderData(show: true, border: Border.all(color: const Color(0xff37434d), width: 1)),
       minX: 0,
       maxX: 11,
       minY: 0,
@@ -197,8 +187,7 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
           ),
           belowBarData: BarAreaData(
             show: true,
-            colors:
-                gradientColors.map((color) => color.withOpacity(0.3)).toList(),
+            colors: gradientColors.map((color) => color.withOpacity(0.3)).toList(),
           ),
         ),
       ],
@@ -229,10 +218,7 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
         bottomTitles: SideTitles(
           showTitles: true,
           reservedSize: 22,
-          textStyle: const TextStyle(
-              color: Color(0xff68737d),
-              fontWeight: FontWeight.bold,
-              fontSize: 16),
+          textStyle: const TextStyle(color: Color(0xff68737d), fontWeight: FontWeight.bold, fontSize: 16),
           getTitles: (value) {
             switch (value.toInt()) {
               case 2:
@@ -268,9 +254,7 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
           margin: 12,
         ),
       ),
-      borderData: FlBorderData(
-          show: true,
-          border: Border.all(color: const Color(0xff37434d), width: 1)),
+      borderData: FlBorderData(show: true, border: Border.all(color: const Color(0xff37434d), width: 1)),
       minX: 0,
       maxX: 11,
       minY: 0,
@@ -288,10 +272,8 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
           ],
           isCurved: true,
           colors: [
-            ColorTween(begin: gradientColors[0], end: gradientColors[1])
-                .lerp(0.2),
-            ColorTween(begin: gradientColors[0], end: gradientColors[1])
-                .lerp(0.2),
+            ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2),
+            ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2),
           ],
           barWidth: 5,
           isStrokeCapRound: true,
@@ -299,12 +281,8 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
             show: false,
           ),
           belowBarData: BarAreaData(show: true, colors: [
-            ColorTween(begin: gradientColors[0], end: gradientColors[1])
-                .lerp(0.2)
-                .withOpacity(0.1),
-            ColorTween(begin: gradientColors[0], end: gradientColors[1])
-                .lerp(0.2)
-                .withOpacity(0.1),
+            ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2).withOpacity(0.1),
+            ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2).withOpacity(0.1),
           ]),
         ),
       ],
