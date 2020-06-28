@@ -34,7 +34,8 @@ void main() {
   runApp(
     BlocProvider<AuthenticationBloc>(
       create: (context) {
-        return AuthenticationBloc(userRepository: userRepository)..add(AuthenticationStarted());
+        return AuthenticationBloc(userRepository: userRepository)
+          ..add(AuthenticationStarted());
       },
       child: App(userRepository: userRepository),
     ),
@@ -55,7 +56,10 @@ class App extends StatelessWidget {
         cardColor: Color(0xFFBDC0C7),
         accentColor: Color(0xFF0DA2CA),
         inputDecorationTheme: InputDecorationTheme(
-          labelStyle: TextStyle(fontFamily: "Corp Trial", fontWeight: FontWeight.w700, color: Color(0xFF0DA2CA)),
+          labelStyle: TextStyle(
+              fontFamily: "Corp Trial",
+              fontWeight: FontWeight.w700,
+              color: Color(0xFF0DA2CA)),
           border: OutlineInputBorder(
             borderSide: BorderSide(
               width: 10,
@@ -65,17 +69,14 @@ class App extends StatelessWidget {
           ),
         ),
         textTheme: TextTheme(
-          bodyText1: TextStyle(
-            fontFamily: "Nasalization",
-            fontSize: 20,
-            color: Color(0xFF0DA2CA)
-          ),
-          headline6: TextStyle(
-            fontFamily: "Software Tester 7",
-            color: Colors.black,
-            fontSize: 30
-          )
-        ),
+            bodyText1: TextStyle(
+                fontFamily: "Nasalization",
+                fontSize: 20,
+                color: Color(0xFF0DA2CA)),
+            headline6: TextStyle(
+                fontFamily: "Software Tester 7",
+                color: Colors.black,
+                fontSize: 30)),
       ),
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {

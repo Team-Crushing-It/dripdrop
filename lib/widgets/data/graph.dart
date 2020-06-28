@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:dripdrop/widgets/data/fake_chart_series.dart';
+import '../../globals.dart' as globals;
 
 class Graph extends StatefulWidget {
   @override
@@ -12,7 +13,6 @@ class Graph extends StatefulWidget {
 final databaseReference = Firestore.instance;
 var temperatureValue, ecValue, tdsValue, phValue;
 List<int> usageNumbers;
-List<int> tempUsageNumbers = [];
 List<Timestamp> usageDates;
 
 class _GraphState extends State<Graph> {
@@ -24,66 +24,9 @@ class _GraphState extends State<Graph> {
   bool showAvg = false;
 
   @override
-  void initState() {
-    super.initState();
-    queryWaterUsage();
-  }
-
-  void queryWaterUsage() {
-    print('here');
-    databaseReference
-        .collection("waterUsage")
-        .orderBy('date')
-        .getDocuments()
-        .then((QuerySnapshot snapshot) {
-      snapshot.documents.forEach((f) {
-        print('whassuff');
-        print(f.data["waterused"]);
-        int a = f.data["waterused"];
-        tempUsageNumbers.add(2);
-      });
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    queryWaterUsage();
-    print(tempUsageNumbers);
-    usageNumbers = [
-      500,
-      195,
-      461,
-      420,
-      579,
-      206,
-      455,
-      223,
-      688,
-      315,
-      236,
-      339,
-      489,
-      598,
-      327,
-      391,
-      263,
-      523,
-      674,
-      585,
-      508,
-      394,
-      311,
-      283,
-      424,
-      299,
-      533,
-      489,
-      674,
-      514,
-      585,
-      638,
-      417
-    ];
+    print(globals.tempUsageNumbers);
+    usageNumbers = globals.tempUsageNumbers;
     return Stack(
       children: <Widget>[
         Container(
