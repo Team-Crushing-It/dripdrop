@@ -1,28 +1,37 @@
 import 'package:flutter/material.dart';
 
-class Leaderboard extends StatelessWidget {
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+class Leaderboard extends StatefulWidget {
+  @override
+  _LeaderboardState createState() => _LeaderboardState();
+}
+
+class _LeaderboardState extends State<Leaderboard> {
+  final databaseReference = Firestore.instance;
+  List<String> leaderboardNames = [];
+  List<int> leaderboardScores = [];
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          alignment: Alignment.topRight,
-          child: Text("USAGE LEADERBOARD", style: TextStyle(fontFamily: "Software Tester 7", fontWeight: FontWeight.w700, fontSize: 30),),
-          color: Theme.of(context).accentColor,
-        ),
-        Container(
-          decoration: BoxDecoration(
-            border: Border.all(
-              width: 5,
-              color: Theme.of(context).accentColor
-            )
-          ),
-          child: ListView(
-            children: [],
-          ),
-        )
-      ],
-    );
+    print("hitherebuckeroo");
+    return Scaffold(
+        body: new StreamBuilder<QuerySnapshot>(
+      stream: Firestore.instance
+          .collection('leaderboard')
+          .orderBy('score')
+          .snapshots(),
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (!snapshot.hasData) return new Text('Loading...');
+        return new ListView(
+          children: snapshot.data.documents.map((DocumentSnapshot document) {
+            return new ListTile(
+              title: new Text(document['name']),
+              subtitle: new Text('${document['score']} points'),
+            );
+          }).toList(),
+        );
+      },
+    ));
   }
 }
