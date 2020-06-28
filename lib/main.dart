@@ -6,7 +6,7 @@ import 'authentication/authentication_bloc.dart';
 import 'authentication/authentication_event.dart';
 import 'authentication/authentication_state.dart';
 import 'pages/login_page.dart';
-import 'pages/home.dart';
+import 'pages/home_page.dart';
 
 class SimpleBlocDelegate extends BlocDelegate {
   @override

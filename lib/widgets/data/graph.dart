@@ -2,14 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import '../widgets/fake_chart_series.dart';
+import 'package:dripdrop/widgets/data/fake_chart_series.dart';
 
-class HomePage extends StatefulWidget {
+class Graph extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _GraphState createState() => _GraphState();
 }
 
-class _HomePageState extends State<HomePage> with FakeChartSeries {
+class _GraphState extends State<Graph> with FakeChartSeries {
   final databaseReference = Firestore.instance;
   var temperatureValue, ecValue, tdsValue, phValue;
   List<int> usageNumbers = [];
@@ -62,50 +62,41 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
   Widget build(BuildContext context) {
     print(usageNumbers);
 
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Thing"),
+    return Stack(
+      children: <Widget>[
+        Container(
+          height: 300,
+          width: 250,
+          decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(18),
+              ),
+              color: Color(0xff232d37)),
+          margin: const EdgeInsets.only(bottom:10.0, top:5.0),
+          child: LineChart(
+            showAvg ? avgData() : mainData(),
+          ),
         ),
-        body: Stack(
-          children: <Widget>[
-            AspectRatio(
-              aspectRatio: 1.70,
-              child: Container(
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(18),
-                    ),
-                    color: Color(0xff232d37)),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      right: 18.0, left: 12.0, top: 24, bottom: 12),
-                  child: LineChart(
-                    showAvg ? avgData() : mainData(),
-                  ),
-                ),
-              ),
+        SizedBox(
+          width: 60,
+          height: 34,
+          child: FlatButton(
+            onPressed: () {
+              setState(() {
+                showAvg = !showAvg;
+              });
+            },
+            child: Text(
+              'avg',
+              style: TextStyle(
+                  fontSize: 12,
+                  color:
+                      showAvg ? Colors.white.withOpacity(0.5) : Colors.white),
             ),
-            SizedBox(
-              width: 60,
-              height: 34,
-              child: FlatButton(
-                onPressed: () {
-                  setState(() {
-                    showAvg = !showAvg;
-                  });
-                },
-                child: Text(
-                  'avg',
-                  style: TextStyle(
-                      fontSize: 12,
-                      color: showAvg
-                          ? Colors.white.withOpacity(0.5)
-                          : Colors.white),
-                ),
-              ),
-            ),
-          ],
-        ));
+          ),
+        ),
+      ],
+    );
   }
 
   LineChartData mainData() {
