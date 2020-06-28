@@ -60,8 +60,41 @@ class _GraphState extends State<Graph> with FakeChartSeries {
 
   @override
   Widget build(BuildContext context) {
-    print(usageNumbers);
-    usageNumbers=[500, 195, 461, 420, 579, 206, 455, 223, 688, 315, 236, 339, 489, 598, 327, 391, 263, 523, 674, 585, 508, 394, 311, 283, 424, 299, 533, 489, 674, 514, 585, 638, 417];
+    usageNumbers = [
+      500,
+      195,
+      461,
+      420,
+      579,
+      206,
+      455,
+      223,
+      688,
+      315,
+      236,
+      339,
+      489,
+      598,
+      327,
+      391,
+      263,
+      523,
+      674,
+      585,
+      508,
+      394,
+      311,
+      283,
+      424,
+      299,
+      533,
+      489,
+      674,
+      514,
+      585,
+      638,
+      417
+    ];
     return Stack(
       children: <Widget>[
         Container(
@@ -101,6 +134,7 @@ class _GraphState extends State<Graph> with FakeChartSeries {
 
   LineChartData mainData() {
     return LineChartData(
+      lineTouchData: LineTouchData(enabled: false),
       gridData: FlGridData(
         show: true,
         drawVerticalLine: true,
@@ -230,7 +264,7 @@ class _GraphState extends State<Graph> with FakeChartSeries {
     var finalAverage = varAverage / lengthOfUsageNumbers;
     print(lengthOfUsageNumbers);
     return LineChartData(
-      lineTouchData: LineTouchData(enabled: true),
+      lineTouchData: LineTouchData(enabled: false),
       gridData: FlGridData(
         show: true,
         drawHorizontalLine: true,
