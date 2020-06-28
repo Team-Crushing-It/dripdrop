@@ -8,7 +8,7 @@ class RealtimeData extends StatefulWidget {
 
 class _RealtimeDataState extends State<RealtimeData> {
   final databaseReference = Firestore.instance;
-  
+
   @override
   Widget build(BuildContext context) {
     return Row(

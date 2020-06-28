@@ -12,35 +12,26 @@ class _LeaderboardState extends State<Leaderboard> {
   List<String> leaderboardNames = [];
   List<int> leaderboardScores = [];
 
-  void findTopLeaders() {
-    databaseReference
-        .collection("leaderboard")
-        .orderBy('score')
-        .getDocuments()
-        .then((QuerySnapshot snapshot) {
-      snapshot.documents.forEach((f) {
-        Map<String, dynamic> codedLeaderBoardData = f.data;
-        leaderboardNames.add(codedLeaderBoardData["name"]);
-        leaderboardScores.add(codedLeaderBoardData["score"]);
-      });
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     print("hitherebuckeroo");
-    findTopLeaders();
-    print(leaderboardNames);
-    print(leaderboardScores);
-
-    return Center(
-        child: Container(
-      margin: const EdgeInsets.only(top: 10.0),
-      width: 250,
-      height: 600,
-      color: Colors.blue,
-      //Insert goodies here
-      child: null,
+    return Scaffold(
+        body: new StreamBuilder<QuerySnapshot>(
+      stream: Firestore.instance
+          .collection('leaderboard')
+          .orderBy('score')
+          .snapshots(),
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (!snapshot.hasData) return new Text('Loading...');
+        return new ListView(
+          children: snapshot.data.documents.map((DocumentSnapshot document) {
+            return new ListTile(
+              title: new Text(document['name']),
+              subtitle: new Text('${document['score']} points'),
+            );
+          }).toList(),
+        );
+      },
     ));
   }
 }
