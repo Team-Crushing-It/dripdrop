@@ -34,8 +34,7 @@ void main() {
   runApp(
     BlocProvider<AuthenticationBloc>(
       create: (context) {
-        return AuthenticationBloc(userRepository: userRepository)
-          ..add(AuthenticationStarted());
+        return AuthenticationBloc(userRepository: userRepository)..add(AuthenticationStarted());
       },
       child: App(userRepository: userRepository),
     ),
@@ -52,6 +51,18 @@ class App extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         fontFamily: "Open Sans",
+        backgroundColor: Color(0xFF1D1D1D),
+        cardColor: Color(0xFFBDC0C7),
+        inputDecorationTheme: InputDecorationTheme(
+          labelStyle: TextStyle(fontFamily: "Corp Trial", color: Color(0xFF0DA2CA)),
+          border: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 10,
+              color: Color(0xFF0DA2CA),
+              style: BorderStyle.solid,
+            ),
+          ),
+        ),
       ),
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {

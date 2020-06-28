@@ -43,22 +43,20 @@ class _LoginFormState extends State<LoginForm> {
               children: [
                 TextFormField(
                   decoration: InputDecoration(
-                      labelText: 'Email', border: OutlineInputBorder()),
+                    labelText: "USERNAME"
+                  ),
                   controller: _usernameController,
                 ),
                 SizedBox(height: 15),
                 TextFormField(
-                  decoration: InputDecoration(
-                      labelText: 'Password', border: OutlineInputBorder()),
+                  decoration: InputDecoration(labelText: 'PASSWORD'),
                   controller: _passwordController,
                   obscureText: true,
                 ),
                 SizedBox(height: 40),
                 RaisedButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)),
-                  onPressed:
-                      state is! LoginInProgress ? _onLoginButtonPressed : null,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                  onPressed: state is! LoginInProgress ? _onLoginButtonPressed : null,
                   textColor: Colors.white,
                   padding: const EdgeInsets.all(0.0),
                   child: Container(
@@ -79,16 +77,13 @@ class _LoginFormState extends State<LoginForm> {
                     child: Center(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child:
-                            const Text('LOGIN', style: TextStyle(fontSize: 20)),
+                        child: const Text('LOGIN', style: TextStyle(fontSize: 20)),
                       ),
                     ),
                   ),
                 ),
                 Container(
-                  child: state is LoginInProgress
-                      ? CircularProgressIndicator()
-                      : null,
+                  child: state is LoginInProgress ? CircularProgressIndicator() : null,
                 ),
               ],
             ),

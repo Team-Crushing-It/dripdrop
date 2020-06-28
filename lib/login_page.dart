@@ -17,6 +17,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 35.0),
@@ -24,44 +25,21 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Spacer(flex: 2),
-              Image(image: AssetImage("assets/logo.png")),
-              Text("only real news",
-                  style: TextStyle(
-                      color: Colors.grey[800],
-                      fontFamily: "Open Sans",
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600)),
-              Spacer(flex: 2),
+              Container(child: Switch(
+                value: true,
+                activeTrackColor: Color(0xFFBDC0C7),
+                onChanged: (bool boolean) {},
+              )),
+              Image(image: AssetImage("assets/logo-stacked.png")),
               BlocProvider(
                 create: (context) {
                   return LoginBloc(
-                    authenticationBloc:
-                        BlocProvider.of<AuthenticationBloc>(context),
+                    authenticationBloc: BlocProvider.of<AuthenticationBloc>(context),
                     userRepository: userRepository,
                   );
                 },
                 child: LoginForm(),
               ),
-              Spacer(),
-              Text("Forgot your password?",
-                  style: TextStyle(color: Colors.grey[600], fontSize: 15)),
-              Spacer(flex: 2),
-              RichText(
-                text: TextSpan(
-                  style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 15,
-                      color: Colors.grey[600]),
-                  children: [
-                    TextSpan(text: "Don't have an account? "),
-                    TextSpan(
-                        text: "Sign Up",
-                        style: TextStyle(fontWeight: FontWeight.w600))
-                  ],
-                ),
-              ),
-              Spacer(),
             ],
           ),
         ),

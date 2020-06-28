@@ -58,6 +58,7 @@ flutter:
 
   assets:
    - assets/logo.png
+   - assets/logo-stacked.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -75,10 +76,17 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+   - family: Nasalization
+     fonts:
+       - asset: fonts/Nasalization-Regular.ttf
+   - family: Corp Trial
+     fonts:
+       - asset: fonts/CorpTrial-Bold.otf
+         weight: 700
+   - family: Software Tester 7
+     fonts:
+       - asset: fonts/SoftwareTester7-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
