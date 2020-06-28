@@ -40,6 +40,9 @@ class _LoginFormState extends State<LoginForm> {
         builder: (context, state) {
           return Form(
             child: Column(
+
+              //Input fields ======================================================
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextFormField(
                   decoration: InputDecoration(labelText: "USERNAME"),
@@ -51,7 +54,7 @@ class _LoginFormState extends State<LoginForm> {
                   controller: _passwordController,
                   obscureText: true,
                 ),
-                SizedBox(height: 40),
+                // SizedBox(height: 40),
 //                RaisedButton(
 //                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
 //                  onPressed: state is! LoginInProgress ? _onLoginButtonPressed : null,
@@ -80,6 +83,8 @@ class _LoginFormState extends State<LoginForm> {
 //                    ),
 //                  ),
 //                ),
+
+                // Remember me row with switch
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -97,12 +102,16 @@ class _LoginFormState extends State<LoginForm> {
                     ),
                   ],
                 ),
-                Container(
-                  child: state is LoginInProgress ? CircularProgressIndicator() : null,
-                ),
+                // Container(
+                //   child: state is LoginInProgress ? CircularProgressIndicator() : null,
+                // ),
+
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+
+                    //Login Bbutton ===============================================================
                     Container(
                       decoration: BoxDecoration(
                         border: Border.all(
@@ -118,6 +127,8 @@ class _LoginFormState extends State<LoginForm> {
                         onPressed: state is! LoginInProgress ? _onLoginButtonPressed : null,
                       ),
                     ),
+
+                    // Register button=========================================================
                     Container(
                       decoration: BoxDecoration(
                           border: Border.all(

@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'fake_chart_series.dart';
+import 'package:dripdrop/widgets/data/fake_chart_series.dart';
 
 class HomePage extends StatefulWidget {
   @override

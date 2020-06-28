@@ -6,6 +6,7 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Profile(),
           Alert(),
