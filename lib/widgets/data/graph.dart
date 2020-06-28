@@ -9,12 +9,13 @@ class Graph extends StatefulWidget {
   _GraphState createState() => _GraphState();
 }
 
-class _GraphState extends State<Graph> with FakeChartSeries {
-  final databaseReference = Firestore.instance;
-  var temperatureValue, ecValue, tdsValue, phValue;
-  List<int> usageNumbers = [];
-  List<Timestamp> usageDates = [];
+final databaseReference = Firestore.instance;
+var temperatureValue, ecValue, tdsValue, phValue;
+List<int> usageNumbers;
+List<int> tempUsageNumbers = [];
+List<Timestamp> usageDates;
 
+class _GraphState extends State<Graph> {
   List<Color> gradientColors = [
     const Color(0xff23b6e6),
     const Color(0xff02d39a),
@@ -25,41 +26,29 @@ class _GraphState extends State<Graph> with FakeChartSeries {
   @override
   void initState() {
     super.initState();
-    databaseReference
-        .collection("realtimePoints")
-        .getDocuments()
-        .then((QuerySnapshot snapshot) {
-      snapshot.documents.forEach((f) {
-        Map<String, dynamic> codedData = f.data;
-        temperatureValue = codedData["temperature"];
-        ecValue = codedData["EC"];
-        tdsValue = codedData["TDS"];
-        phValue = codedData["pH"];
-        print(temperatureValue);
-        print(ecValue);
-        print(tdsValue);
-        print(phValue);
-      });
-    });
+    queryWaterUsage();
+  }
 
-    usageDates = [];
+  void queryWaterUsage() {
+    print('here');
     databaseReference
         .collection("waterUsage")
         .orderBy('date')
         .getDocuments()
         .then((QuerySnapshot snapshot) {
       snapshot.documents.forEach((f) {
-        Map<String, dynamic> codedData = f.data;
-        usageNumbers.add(codedData["waterused"]);
-        usageDates.add(codedData["date"]);
+        print('whassuff');
+        print(f.data["waterused"]);
+        int a = f.data["waterused"];
+        tempUsageNumbers.add(2);
       });
     });
-    print(usageNumbers);
-    //lengthOfUsageNumbers = usageNumbers.length;
   }
 
   @override
   Widget build(BuildContext context) {
+    queryWaterUsage();
+    print(tempUsageNumbers);
     usageNumbers = [
       500,
       195,

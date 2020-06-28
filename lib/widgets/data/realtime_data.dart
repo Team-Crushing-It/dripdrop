@@ -22,7 +22,7 @@ class _RealtimeDataState extends State<RealtimeData> {
   Widget build(BuildContext context) {
     return Container(
       width: 200.0,
-      height: 300.0,
+      height: 100.0,
       child: StreamBuilder(
         stream: Firestore.instance.collection('realtimePoints').snapshots(),
         //print an integer every 2secs, 10 times
