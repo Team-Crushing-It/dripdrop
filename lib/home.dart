@@ -12,6 +12,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with FakeChartSeries {
   final databaseReference = Firestore.instance;
   var temperatureValue, ecValue, tdsValue, phValue;
+  List<int> usageNumbers = [];
+  List<Timestamp> usageDates = [];
 
   List<Color> gradientColors = [
     const Color(0xff23b6e6),
@@ -40,15 +42,10 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
       });
     });
 
-    getUsageData();
-  }
-
-  List<int> usageNumbers = [];
-  List<Timestamp> usageDates = [];
-
-  void getUsageData() {
+    usageDates = [];
     databaseReference
         .collection("waterUsage")
+        .orderBy('date')
         .getDocuments()
         .then((QuerySnapshot snapshot) {
       snapshot.documents.forEach((f) {
@@ -58,16 +55,16 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
       });
     });
     print(usageNumbers);
-    print(usageDates);
+    print("whatsup");
   }
 
   @override
   Widget build(BuildContext context) {
-    getUsageData();
+    print(usageNumbers);
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Drop By Drop"),
+          title: Text("Thing"),
         ),
         body: Stack(
           children: <Widget>[
