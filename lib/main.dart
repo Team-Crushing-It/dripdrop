@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'user_repository.dart';
-import 'authentication_bloc.dart';
-import 'authentication_event.dart';
-import 'authentication_state.dart';
-import 'login_page.dart';
-import 'home.dart';
+import 'authentication/authentication_bloc.dart';
+import 'authentication/authentication_event.dart';
+import 'authentication/authentication_state.dart';
+import 'pages/login_page.dart';
+import 'pages/home.dart';
 
 class SimpleBlocDelegate extends BlocDelegate {
   @override
