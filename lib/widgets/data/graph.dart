@@ -16,10 +16,7 @@ List<int> usageNumbers;
 List<Timestamp> usageDates;
 
 class _GraphState extends State<Graph> {
-  List<Color> gradientColors = [
-   Color(0xFF0DA2CA)
-
-  ];
+  List<Color> gradientColors = [Color(0xFF0DA2CA)];
 
   bool showAvg = false;
 
@@ -70,8 +67,7 @@ class _GraphState extends State<Graph> {
 
   LineChartData mainData() {
     return LineChartData(
-
-      lineTouchData: LineTouchData(enabled: true),
+      lineTouchData: LineTouchData(enabled: false),
       gridData: FlGridData(
         show: true,
         drawVerticalLine: true,
@@ -132,8 +128,6 @@ class _GraphState extends State<Graph> {
           show: false,
           border: Border.all(color: const Color(0xff37434d), width: 1)),
 
-
-
       minX: 0,
       maxX: 30,
       minY: 0,
@@ -160,7 +154,6 @@ class _GraphState extends State<Graph> {
           isStrokeCapRound: true,
           dotData: FlDotData(
             show: false,
-            
           ),
           belowBarData: BarAreaData(
             show: true,
@@ -171,6 +164,7 @@ class _GraphState extends State<Graph> {
       ],
     );
   }
+
 //============================================================================
   LineChartData avgData() {
     var lengthOfUsageNumbers = 30;
