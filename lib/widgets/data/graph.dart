@@ -16,7 +16,10 @@ List<int> usageNumbers;
 List<Timestamp> usageDates;
 
 class _GraphState extends State<Graph> {
-  List<Color> gradientColors = [Color(0xFF0DA2CA)];
+  List<Color> gradientColors = [
+    const Color(0xff23b6e6),
+    const Color(0xff23b6e6),
+  ];
 
   bool showAvg = false;
 
@@ -29,15 +32,12 @@ class _GraphState extends State<Graph> {
         Container(
           height: 300,
           width: 270,
-          decoration: BoxDecoration(
-              border: Border.all(color: Color(0xFF0DA2CA), width: 7),
+          decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(
-                Radius.circular(5),
+                Radius.circular(18),
               ),
-              color: Color(0xFF1D1D1D)),
-          margin: EdgeInsets.only(bottom: 10.0, top: 10.0),
-          padding: new EdgeInsets.only(
-              bottom: 10.0, left: 0.0, right: 15.0, top: 30.0),
+              color: Color(0xff232d37)),
+          margin: const EdgeInsets.only(bottom: 10.0, top: 5.0),
           child: LineChart(
             showAvg ? avgData() : mainData(),
           ),
@@ -51,14 +51,13 @@ class _GraphState extends State<Graph> {
                 showAvg = !showAvg;
               });
             },
-            child: Container(),
-            // Text(
-            //   'avg',
-            //   style: TextStyle(
-            //       fontSize: 12,
-            //       color:
-            //           showAvg ? Colors.white.withOpacity(0.5) : Colors.white),
-            // ),
+            child: Text(
+              'avg',
+              style: TextStyle(
+                  fontSize: 12,
+                  color:
+                      showAvg ? Colors.white.withOpacity(0.5) : Colors.white),
+            ),
           ),
         ),
       ],
@@ -71,7 +70,6 @@ class _GraphState extends State<Graph> {
       gridData: FlGridData(
         show: true,
         drawVerticalLine: true,
-        drawHorizontalLine: false,
         getDrawingHorizontalLine: (value) {
           return FlLine(
             color: const Color(0xff37434d),
@@ -85,16 +83,15 @@ class _GraphState extends State<Graph> {
           );
         },
       ),
-      // Bottom formatting styles ============================================
       titlesData: FlTitlesData(
         show: true,
         bottomTitles: SideTitles(
           showTitles: true,
-          reservedSize: 2,
+          reservedSize: 22,
           textStyle: const TextStyle(
               color: Color(0xff68737d),
               fontWeight: FontWeight.bold,
-              fontSize: 8),
+              fontSize: 13),
           getTitles: (value) {
             switch (value.toInt()) {
               case 2:
@@ -104,36 +101,49 @@ class _GraphState extends State<Graph> {
           },
           margin: 8,
         ),
-
-        //Horizontal styling =======================================
-        rightTitles: SideTitles(
+        leftTitles: SideTitles(
           showTitles: true,
           textStyle: const TextStyle(
             color: Color(0xff67727d),
             fontWeight: FontWeight.bold,
-            fontSize: 8,
+            fontSize: 13,
           ),
           getTitles: (value) {
             switch (value.toInt()) {
-              case 2:
-                return '';
+              case 1:
+                return '150L';
+              case 3:
+                return '                     ';
+              case 5:
+                return '300L';
+              case 7:
+                return '                     ';
+              case 9:
+                return '450L';
+              case 11:
+                return '                     ';
+              case 13:
+                return '600L';
+              case 15:
+                return '                     ';
+              case 17:
+                return '750L';
+              case 19:
+                return '                     ';
             }
             return '';
           },
-          reservedSize: 5,
-          margin: 2,
+          reservedSize: 35,
+          margin: 12,
         ),
       ),
       borderData: FlBorderData(
-          show: false,
+          show: true,
           border: Border.all(color: const Color(0xff37434d), width: 1)),
-
       minX: 0,
-      maxX: 30,
+      maxX: 31,
       minY: 0,
       maxY: 20,
-
-      //data time ========================================================
       lineBarsData: [
         LineChartBarData(
           spots: [
@@ -165,7 +175,6 @@ class _GraphState extends State<Graph> {
     );
   }
 
-//============================================================================
   LineChartData avgData() {
     var lengthOfUsageNumbers = 30;
     var xIntervalsHere = 31 / 11;
@@ -194,7 +203,7 @@ class _GraphState extends State<Graph> {
         show: true,
         bottomTitles: SideTitles(
           showTitles: true,
-          reservedSize: 2,
+          reservedSize: 22,
           textStyle: const TextStyle(
               color: Color(0xff68737d),
               fontWeight: FontWeight.bold,
@@ -202,11 +211,15 @@ class _GraphState extends State<Graph> {
           getTitles: (value) {
             switch (value.toInt()) {
               case 2:
-                return '';
+                return 'JUN 3';
+              case 5:
+                return 'JUN 11';
+              case 8:
+                return 'JUN 19';
             }
             return '';
           },
-          margin: 2,
+          margin: 8,
         ),
         leftTitles: SideTitles(
           showTitles: true,
@@ -218,12 +231,30 @@ class _GraphState extends State<Graph> {
           getTitles: (value) {
             switch (value.toInt()) {
               case 1:
-                return '';
+                return '150L';
+              case 3:
+                return '                     ';
+              case 5:
+                return '300L';
+              case 7:
+                return '                     ';
+              case 9:
+                return '450L';
+              case 11:
+                return '                     ';
+              case 13:
+                return '600L';
+              case 15:
+                return '                     ';
+              case 17:
+                return '750L';
+              case 19:
+                return '                     ';
             }
             return '';
           },
-          reservedSize: 5,
-          margin: 2,
+          reservedSize: 35,
+          margin: 12,
         ),
       ),
       borderData: FlBorderData(
@@ -236,13 +267,13 @@ class _GraphState extends State<Graph> {
       lineBarsData: [
         LineChartBarData(
           spots: [
-            FlSpot(0, finalAverage / 100),
-            FlSpot(2.6, finalAverage / 100),
-            FlSpot(4.9, finalAverage / 100),
-            FlSpot(6.8, finalAverage / 100),
-            FlSpot(8, finalAverage / 100),
-            FlSpot(9.5, finalAverage / 100),
-            FlSpot(11, finalAverage / 100),
+            FlSpot(0, finalAverage / 50),
+            FlSpot(2.6, finalAverage / 50),
+            FlSpot(4.9, finalAverage / 50),
+            FlSpot(6.8, finalAverage / 50),
+            FlSpot(8, finalAverage / 50),
+            FlSpot(9.5, finalAverage / 50),
+            FlSpot(11, finalAverage / 50),
           ],
           isCurved: true,
           colors: [
