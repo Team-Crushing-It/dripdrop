@@ -4,7 +4,7 @@ Know your water and how much you use. Challenge your friends to save every drop!
 
 
 ![1](/assets/logo.png)
-![2](/assets/dripdropggif.gif)
+![2](https://github.com/Team-Crushing-It/dripdrop/blob/master/assets/dripdropgif.gif)
 ![2](/assets/presentation.png)
 
 ## Inspiration
