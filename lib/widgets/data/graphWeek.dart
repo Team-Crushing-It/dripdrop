@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:dripdrop/widgets/data/fake_chart_series.dart';
 import '../../globals.dart' as globals;
 
 class GraphWeek extends StatefulWidget {
@@ -17,7 +18,7 @@ List<Timestamp> usageDates;
 class _GraphWeekState extends State<GraphWeek> {
   List<Color> gradientColors = [
     const Color(0xff23b6e6),
-    const Color(0xff02d39a),
+    const Color(0xff23b6e6),
   ];
 
   bool showAvg = false;
@@ -26,9 +27,6 @@ class _GraphWeekState extends State<GraphWeek> {
   Widget build(BuildContext context) {
     var temp2 = globals.tempUsageNumbers.reversed.toList();
     usageNumbers = temp2.sublist(0, 7);
-
-    print(usageNumbers);
-
     return Stack(
       children: <Widget>[
         Container(
@@ -89,7 +87,7 @@ class _GraphWeekState extends State<GraphWeek> {
         show: true,
         bottomTitles: SideTitles(
           showTitles: true,
-          reservedSize: 2,
+          reservedSize: 22,
           textStyle: const TextStyle(
               color: Color(0xff68737d),
               fontWeight: FontWeight.bold,
@@ -112,13 +110,31 @@ class _GraphWeekState extends State<GraphWeek> {
           ),
           getTitles: (value) {
             switch (value.toInt()) {
-              case 2:
-                return '';
+              case 1:
+                return '150L';
+              case 3:
+                return '                     ';
+              case 5:
+                return '300L';
+              case 7:
+                return '                     ';
+              case 9:
+                return '450L';
+              case 11:
+                return '                     ';
+              case 13:
+                return '600L';
+              case 15:
+                return '                     ';
+              case 17:
+                return '750L';
+              case 19:
+                return '                     ';
             }
             return '';
           },
-          reservedSize: 5,
-          margin: 2,
+          reservedSize: 35,
+          margin: 12,
         ),
       ),
       borderData: FlBorderData(
@@ -160,7 +176,7 @@ class _GraphWeekState extends State<GraphWeek> {
   }
 
   LineChartData avgData() {
-    var lengthOfUsageNumbers = 6;
+    var lengthOfUsageNumbers = 7;
     var xIntervalsHere = 31 / 11;
     var varAverage = usageNumbers.reduce((a, b) => a + b);
     var finalAverage = varAverage / lengthOfUsageNumbers;
@@ -187,7 +203,7 @@ class _GraphWeekState extends State<GraphWeek> {
         show: true,
         bottomTitles: SideTitles(
           showTitles: true,
-          reservedSize: 2,
+          reservedSize: 22,
           textStyle: const TextStyle(
               color: Color(0xff68737d),
               fontWeight: FontWeight.bold,
@@ -195,11 +211,15 @@ class _GraphWeekState extends State<GraphWeek> {
           getTitles: (value) {
             switch (value.toInt()) {
               case 2:
-                return '';
+                return 'JUN 3';
+              case 5:
+                return 'JUN 11';
+              case 8:
+                return 'JUN 19';
             }
             return '';
           },
-          margin: 2,
+          margin: 8,
         ),
         leftTitles: SideTitles(
           showTitles: true,
@@ -211,12 +231,30 @@ class _GraphWeekState extends State<GraphWeek> {
           getTitles: (value) {
             switch (value.toInt()) {
               case 1:
-                return '';
+                return '150L';
+              case 3:
+                return '                     ';
+              case 5:
+                return '300L';
+              case 7:
+                return '                     ';
+              case 9:
+                return '450L';
+              case 11:
+                return '                     ';
+              case 13:
+                return '600L';
+              case 15:
+                return '                     ';
+              case 17:
+                return '750L';
+              case 19:
+                return '                     ';
             }
             return '';
           },
-          reservedSize: 5,
-          margin: 2,
+          reservedSize: 35,
+          margin: 12,
         ),
       ),
       borderData: FlBorderData(
@@ -229,13 +267,13 @@ class _GraphWeekState extends State<GraphWeek> {
       lineBarsData: [
         LineChartBarData(
           spots: [
-            FlSpot(0, finalAverage / 65),
-            FlSpot(2.6, finalAverage / 65),
-            FlSpot(4.9, finalAverage / 65),
-            FlSpot(6.8, finalAverage / 65),
-            FlSpot(8, finalAverage / 65),
-            FlSpot(9.5, finalAverage / 65),
-            FlSpot(11, finalAverage / 65),
+            FlSpot(0, finalAverage / 50),
+            FlSpot(2.6, finalAverage / 50),
+            FlSpot(4.9, finalAverage / 50),
+            FlSpot(6.8, finalAverage / 50),
+            FlSpot(8, finalAverage / 50),
+            FlSpot(9.5, finalAverage / 50),
+            FlSpot(11, finalAverage / 50),
           ],
           isCurved: true,
           colors: [
