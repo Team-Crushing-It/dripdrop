@@ -75,6 +75,7 @@ class _AppState extends State<App> {
         backgroundColor: Color(0xFF1D1D1D),
         cardColor: Color(0xFFBDC0C7),
         accentColor: Color(0xFF0DA2CA),
+        splashColor: Color(0xFFFDB223),
         inputDecorationTheme: InputDecorationTheme(
           labelStyle: TextStyle(
               fontFamily: "Corp Trial",
