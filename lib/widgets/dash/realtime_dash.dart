@@ -20,13 +20,13 @@ class _RealtimeDashState extends State<RealtimeDash> {
           //insert streambuilder here
           Container(
             width: 160,
-            height: 30,
+            height: 80,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 3),
-                  child: Text("total dissolved solids", style: TextStyle(fontFamily: "Nasalization")),
+                  child: Text("total dissolved solids", style: TextStyle(fontFamily: "Nasalization", fontSize: 13)),
                   color: Theme.of(context).accentColor,
                 ),
                 Container(
@@ -51,7 +51,7 @@ class _RealtimeDashState extends State<RealtimeDash> {
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 3),
-                  child: Text("electrical conductivity", style: TextStyle(fontFamily: "Nasalization")),
+                  child: Text("electrical conductivity", style: TextStyle(fontFamily: "Nasalization", fontSize: 13)),
                   color: Theme.of(context).accentColor,
                 ),
                 Container(
