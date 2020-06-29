@@ -32,7 +32,7 @@ Swiping to the left, you can see detailed information about your water, such as 
 
 [5](/assets/leaderboardpage.png)
 
-The best part about this app is that it lets you challenge your friends to see who can save the most water. No one is taking bets over here (officially), some of us may be a little too competitive, but it's all in good cheer and opens up your eyes to how your water usage affects the community.
+The best part about this app is that it lets you challenge your friends to see who can save the most water. No one is taking bets over here (officially), some of us may be a little too competitive, but it's all in good cheer and opens up your eyes to how your water usage affects the community. It's a pandemic, who needs to take showers??
 
 The Pacman look was the most enjoyable part of this project!
 
