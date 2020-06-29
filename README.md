@@ -9,7 +9,7 @@ Dripdrop makes transparent your water quality, your usage and the impact you hav
 Challenged by the #Hack20 Flutter Hackathon, Team Crushing it designed this app to empower consumers with data and to make way for the cyberpunk future built with retro aesthetic. 
 
 ## Our Design
-
+![2](/assets/opening.png)
 ![2](/assets/presentation.png)
 
 Our design is one continuos panel where you can swipe left or right to focus on your water data or how your usage compares with your friends. 
@@ -24,7 +24,7 @@ Our Home Page gives a quick overview, gives you feedback about your water usage,
 
 ## Data Page
 
-[4](/assets/datapage.png)
+[4](/assets/Data.png)
 
 Swiping to the left, you can see detailed information about your water, such as the monthly usage, the TDS and EC. 
 
