@@ -17,8 +17,8 @@ List<Timestamp> usageDates;
 
 class _GraphState extends State<Graph> {
   List<Color> gradientColors = [
-    const Color(0xff23b6e6),
-    const Color(0xff02d39a),
+   Color(0xFF0DA2CA)
+
   ];
 
   bool showAvg = false;
@@ -32,12 +32,15 @@ class _GraphState extends State<Graph> {
         Container(
           height: 300,
           width: 270,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
+              border: Border.all(color: Color(0xFF0DA2CA), width: 7),
               borderRadius: BorderRadius.all(
-                Radius.circular(18),
+                Radius.circular(5),
               ),
-              color: Color(0xff232d37)),
-          margin: const EdgeInsets.only(bottom: 10.0, top: 5.0),
+              color: Color(0xFF1D1D1D)),
+          margin: EdgeInsets.only(bottom: 10.0, top: 10.0),
+          padding: new EdgeInsets.only(
+              bottom: 10.0, left: 0.0, right: 15.0, top: 30.0),
           child: LineChart(
             showAvg ? avgData() : mainData(),
           ),
@@ -51,13 +54,14 @@ class _GraphState extends State<Graph> {
                 showAvg = !showAvg;
               });
             },
-            child: Text(
-              'avg',
-              style: TextStyle(
-                  fontSize: 12,
-                  color:
-                      showAvg ? Colors.white.withOpacity(0.5) : Colors.white),
-            ),
+            child: Container(),
+            // Text(
+            //   'avg',
+            //   style: TextStyle(
+            //       fontSize: 12,
+            //       color:
+            //           showAvg ? Colors.white.withOpacity(0.5) : Colors.white),
+            // ),
           ),
         ),
       ],
@@ -66,10 +70,12 @@ class _GraphState extends State<Graph> {
 
   LineChartData mainData() {
     return LineChartData(
-      lineTouchData: LineTouchData(enabled: false),
+
+      lineTouchData: LineTouchData(enabled: true),
       gridData: FlGridData(
         show: true,
         drawVerticalLine: true,
+        drawHorizontalLine: false,
         getDrawingHorizontalLine: (value) {
           return FlLine(
             color: const Color(0xff37434d),
@@ -83,6 +89,7 @@ class _GraphState extends State<Graph> {
           );
         },
       ),
+      // Bottom formatting styles ============================================
       titlesData: FlTitlesData(
         show: true,
         bottomTitles: SideTitles(
@@ -91,7 +98,7 @@ class _GraphState extends State<Graph> {
           textStyle: const TextStyle(
               color: Color(0xff68737d),
               fontWeight: FontWeight.bold,
-              fontSize: 13),
+              fontSize: 8),
           getTitles: (value) {
             switch (value.toInt()) {
               case 2:
@@ -115,12 +122,14 @@ class _GraphState extends State<Graph> {
           },
           margin: 8,
         ),
-        leftTitles: SideTitles(
+
+        //Horizontal styling =======================================
+        rightTitles: SideTitles(
           showTitles: true,
           textStyle: const TextStyle(
             color: Color(0xff67727d),
             fontWeight: FontWeight.bold,
-            fontSize: 13,
+            fontSize: 8,
           ),
           getTitles: (value) {
             switch (value.toInt()) {
@@ -152,12 +161,17 @@ class _GraphState extends State<Graph> {
         ),
       ),
       borderData: FlBorderData(
-          show: true,
+          show: false,
           border: Border.all(color: const Color(0xff37434d), width: 1)),
+
+
+
       minX: 0,
-      maxX: 31,
+      maxX: 30,
       minY: 0,
       maxY: 20,
+
+      //data time ========================================================
       lineBarsData: [
         LineChartBarData(
           spots: [
@@ -178,6 +192,7 @@ class _GraphState extends State<Graph> {
           isStrokeCapRound: true,
           dotData: FlDotData(
             show: false,
+            
           ),
           belowBarData: BarAreaData(
             show: true,
@@ -188,7 +203,7 @@ class _GraphState extends State<Graph> {
       ],
     );
   }
-
+//============================================================================
   LineChartData avgData() {
     var lengthOfUsageNumbers = 30;
     var xIntervalsHere = 31 / 11;
