@@ -82,8 +82,6 @@ flutter:
   fonts:
    - family: Nasalization
      fonts:
-       - asset: fonts/Nasalization-Light.ttf
-         weight: 300
        - asset: fonts/Nasalization-Regular.ttf
    - family: Corp Trial
      fonts:
