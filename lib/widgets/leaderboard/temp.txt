@@ -21,14 +21,12 @@ class _LeaderboardState extends State<Leaderboard> {
           .collection('leaderboard')
           .orderBy('score')
           .snapshots(),
-      builder: (
-        BuildContext context,
-        AsyncSnapshot<QuerySnapshot> snapshot,
-      ) {
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (!snapshot.hasData) return new Text('Loading...');
         return new ListView(
           children: snapshot.data.documents.map((DocumentSnapshot document) {
-            return new Row(
+            return new 
+               Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -38,21 +36,18 @@ class _LeaderboardState extends State<Leaderboard> {
                   color: Colors.cyanAccent,
                   width: 80.0,
                   height: 80.0,
-                  child: Text('rank'),
                 ),
                 Container(
                   padding: const EdgeInsets.all(0.0),
                   color: Colors.blueAccent,
                   width: 80.0,
                   height: 80.0,
-                  child: Text(document['name']),
                 ),
                 Container(
                   padding: const EdgeInsets.all(0.0),
                   color: Colors.orangeAccent,
                   width: 80.0,
                   height: 80.0,
-                  child: Text(document['score'].toString()),
                 ),
               ],
             );
@@ -62,6 +57,3 @@ class _LeaderboardState extends State<Leaderboard> {
     ));
   }
 }
-
-//title: new Text(document['name']),
-//subtitle: new Text('${document['score']} points'),
