@@ -53,21 +53,31 @@ class _RealtimeDataState extends State<RealtimeData> {
 
   @override
   Widget build(BuildContext context) {
-    Flexible(
-        fit: FlexFit.tight,
-        child: FractionallySizedBox(
-          heightFactor: .1,
-                  child: Container(
-            margin: const EdgeInsets.only(top: 10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+    return Container(
+      margin: const EdgeInsets.only(top: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          //insert streambuilder here
+          Container(
+            width: 160,
+            height: 80,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+
               children: [
                 //insert streambuilder here
                 Container(
-                  width: 160,
-                  height: 30,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                  padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 3),
+                  child: Text("power of hydrogen", style: TextStyle(fontFamily: "Nasalization")),
+                  color: Theme.of(context).accentColor,
+                ),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                     children: [
                       Container(
                         padding: const EdgeInsets.symmetric(
@@ -95,6 +105,23 @@ class _RealtimeDataState extends State<RealtimeData> {
                       ),
                     ],
                   ),
+                  color: Theme.of(context).splashColor,
+                  padding: EdgeInsets.symmetric(horizontal: 3),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: 130,
+            height: 80,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 3),
+                  child: Text("temperature", style: TextStyle(fontFamily: "Nasalization")),
+                  color: Theme.of(context).accentColor,
+
                 ),
                 Container(
                   width: 160,
