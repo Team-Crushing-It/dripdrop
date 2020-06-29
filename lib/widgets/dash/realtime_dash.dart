@@ -18,8 +18,56 @@ class _RealtimeDashState extends State<RealtimeDash> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           //insert streambuilder here
-          Container(width: 140, height: 80, color: Colors.blue),
-          Container(width: 140, height: 80, color: Colors.yellow),
+          Container(
+            width: 160,
+            height: 30,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 3),
+                  child: Text("total dissolved solids", style: TextStyle(fontFamily: "Nasalization")),
+                  color: Theme.of(context).accentColor,
+                ),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("252", style: TextStyle(fontFamily: "Software Tester 7", fontSize: 40)),
+                      Text("mg/L", style: TextStyle(fontFamily: "Software Tester 7", fontSize: 25))
+                    ],
+                  ),
+                  color: Theme.of(context).splashColor,
+                  padding: EdgeInsets.symmetric(horizontal: 3),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: 160,
+            height: 80,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 3),
+                  child: Text("electrical conductivity", style: TextStyle(fontFamily: "Nasalization")),
+                  color: Theme.of(context).accentColor,
+                ),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("300", style: TextStyle(fontFamily: "Software Tester 7", fontSize: 40)),
+                      Text("uS", style: TextStyle(fontFamily: "Software Tester 7", fontSize: 25))
+                    ],
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 3),
+                  color: Theme.of(context).splashColor,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
