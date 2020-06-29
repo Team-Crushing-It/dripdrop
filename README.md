@@ -41,8 +41,3 @@ The Pacman look was the most enjoyable part of this project!
 Feel free to use this as design inspriation and we are happy to share with you what we learned ! Thanks for sharing this treat with Team Crushing it
 
 Built with 💗 on Flutter and Firebase
-
-
-
-
-Built with 💗 on Flutter and Firebase
