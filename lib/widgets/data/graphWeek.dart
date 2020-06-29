@@ -2,12 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:dripdrop/widgets/data/fake_chart_series.dart';
 import '../../globals.dart' as globals;
 
-class Graph extends StatefulWidget {
+class GraphWeek extends StatefulWidget {
   @override
-  _GraphState createState() => _GraphState();
+  _GraphWeekState createState() => _GraphWeekState();
 }
 
 final databaseReference = Firestore.instance;
@@ -15,7 +14,7 @@ var temperatureValue, ecValue, tdsValue, phValue;
 List<int> usageNumbers;
 List<Timestamp> usageDates;
 
-class _GraphState extends State<Graph> {
+class _GraphWeekState extends State<GraphWeek> {
   List<Color> gradientColors = [
     const Color(0xff23b6e6),
     const Color(0xff02d39a),
@@ -25,8 +24,11 @@ class _GraphState extends State<Graph> {
 
   @override
   Widget build(BuildContext context) {
-    print(globals.tempUsageNumbers);
-    usageNumbers = globals.tempUsageNumbers;
+    var temp2 = globals.tempUsageNumbers.reversed.toList();
+    usageNumbers = temp2.sublist(0, 7);
+
+    print(usageNumbers);
+
     return Stack(
       children: <Widget>[
         Container(
@@ -123,14 +125,14 @@ class _GraphState extends State<Graph> {
           show: true,
           border: Border.all(color: const Color(0xff37434d), width: 1)),
       minX: 0,
-      maxX: 31,
+      maxX: 6,
       minY: 0,
       maxY: 20,
       lineBarsData: [
         LineChartBarData(
           spots: [
-            for (var i = 0; i < 31; i++)
-              FlSpot(i + (11 / 31) / 100, usageNumbers[i] / 50),
+            for (var i = 0; i < 7; i++)
+              FlSpot(i + (11 / 7) / 110, usageNumbers[i] / 50),
 
             //FlSpot(0, 3),
             //FlSpot(2.6, 2),
@@ -158,7 +160,7 @@ class _GraphState extends State<Graph> {
   }
 
   LineChartData avgData() {
-    var lengthOfUsageNumbers = 30;
+    var lengthOfUsageNumbers = 6;
     var xIntervalsHere = 31 / 11;
     var varAverage = usageNumbers.reduce((a, b) => a + b);
     var finalAverage = varAverage / lengthOfUsageNumbers;
@@ -227,13 +229,13 @@ class _GraphState extends State<Graph> {
       lineBarsData: [
         LineChartBarData(
           spots: [
-            FlSpot(0, finalAverage / 100),
-            FlSpot(2.6, finalAverage / 100),
-            FlSpot(4.9, finalAverage / 100),
-            FlSpot(6.8, finalAverage / 100),
-            FlSpot(8, finalAverage / 100),
-            FlSpot(9.5, finalAverage / 100),
-            FlSpot(11, finalAverage / 100),
+            FlSpot(0, finalAverage / 65),
+            FlSpot(2.6, finalAverage / 65),
+            FlSpot(4.9, finalAverage / 65),
+            FlSpot(6.8, finalAverage / 65),
+            FlSpot(8, finalAverage / 65),
+            FlSpot(9.5, finalAverage / 65),
+            FlSpot(11, finalAverage / 65),
           ],
           isCurved: true,
           colors: [

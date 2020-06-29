@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:dripdrop/widgets/data/data.dart';
+import 'package:dripdrop/widgets/data/graphWeek.dart';
 
-
-class DataPage extends StatelessWidget{
+class DataPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +11,8 @@ class DataPage extends StatelessWidget{
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TimeSelect(),
-          Graph(),
+          //Graph(),
+          GraphWeek(),
           MonthlyUsage(),
           RealtimeData(),
         ],
