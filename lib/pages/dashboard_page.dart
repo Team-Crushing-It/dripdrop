@@ -10,9 +10,9 @@ class DashboardPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Profile(),
-          Alert(),
-          Twitter(),
-          RealtimeDash(),
+          // // Alert(),
+          // Twitter(),
+          // RealtimeDash(),
         ],
       ),
     );

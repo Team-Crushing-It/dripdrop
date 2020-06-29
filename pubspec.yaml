@@ -37,6 +37,7 @@ dependencies:
   fl_chart: ^0.10.0
   simple_animations: ^2.2.1
   percent_indicator: ^2.1.5
+  auto_size_text: ^2.1.0
 
 
   # The following adds the Cupertino Icons font to your application.
