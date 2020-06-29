@@ -56,18 +56,18 @@ class _RealtimeDataState extends State<RealtimeData> {
     return Container(
       margin: const EdgeInsets.only(top: 10.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           //insert streambuilder here
           Container(
             width: 160,
-            height: 30,
+            height: 80,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 3),
-                  child: Text("powder of hydrogen", style: TextStyle(fontFamily: "Nasalization")),
+                  child: Text("power of hydrogen", style: TextStyle(fontFamily: "Nasalization")),
                   color: Theme.of(context).accentColor,
                 ),
                 Container(
@@ -85,7 +85,7 @@ class _RealtimeDataState extends State<RealtimeData> {
             ),
           ),
           Container(
-            width: 160,
+            width: 130,
             height: 80,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
