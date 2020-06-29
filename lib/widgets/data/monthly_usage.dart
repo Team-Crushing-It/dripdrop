@@ -16,7 +16,7 @@ class _MonthlyUsageState extends State<MonthlyUsage> {
       child: Container(
         margin: const EdgeInsets.only(top: 10.0, bottom: 10.0),
         width: 290,
-        height: 130,
+        height: 100,
         //Insert goodies here
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -9,6 +9,8 @@ import 'pages/login_page.dart';
 import 'pages/home_page.dart';
 import 'package:dripdrop/pages/drop_page.dart';
 
+import 'package:flutter/services.dart';
+
 class SimpleBlocDelegate extends BlocDelegate {
   @override
   void onEvent(Bloc bloc, Object event) {
@@ -30,6 +32,8 @@ class SimpleBlocDelegate extends BlocDelegate {
 }
 
 void main() {
+  
+
   BlocSupervisor.delegate = SimpleBlocDelegate();
   final userRepository = UserRepository();
   runApp(
@@ -43,11 +47,26 @@ void main() {
   );
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   final UserRepository userRepository;
 
   App({Key key, @required this.userRepository}) : super(key: key);
 
+  @override
+  _AppState createState() => _AppState();
+
+  
+}
+
+class _AppState extends State<App> {
+
+  @override
+  void initState() {
+
+    super.initState();
+    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -89,7 +108,7 @@ class App extends StatelessWidget {
             return HomePage();
           }
           if (state is AuthenticationFailure) {
-            return LoginPage(userRepository: userRepository);
+            return LoginPage(userRepository: widget.userRepository);
           }
           if (state is AuthenticationInProgress) {
             return Text("Loading");
