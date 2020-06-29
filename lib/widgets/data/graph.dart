@@ -24,50 +24,59 @@ class _GraphState extends State<Graph> {
   Widget build(BuildContext context) {
     print(globals.tempUsageNumbers);
     usageNumbers = globals.tempUsageNumbers;
-    return Stack(
-      children: <Widget>[
-        Container(
-          height: 300,
-          width: 270,
-          decoration: BoxDecoration(
-              border: Border.all(color: Color(0xFF0DA2CA), width: 7),
-              borderRadius: BorderRadius.all(
-                Radius.circular(5),
-              ),
-              color: Color(0xFF1D1D1D)),
-          margin: EdgeInsets.only(bottom: 10.0, top: 10.0),
-          padding: new EdgeInsets.only(
-              bottom: 10.0, left: 0.0, right: 15.0, top: 30.0),
-          child: LineChart(
-            showAvg ? avgData() : mainData(),
-          ),
-        ),
-        SizedBox(
-          width: 60,
-          height: 34,
-          child: FlatButton(
-            onPressed: () {
-              setState(() {
-                showAvg = !showAvg;
-              });
-            },
-            child: Container(),
-            // Text(
-            //   'avg',
-            //   style: TextStyle(
-            //       fontSize: 12,
-            //       color:
-            //           showAvg ? Colors.white.withOpacity(0.5) : Colors.white),
-            // ),
-          ),
-        ),
-      ],
-    );
+
+    return Flexible(
+        flex: 5,
+        fit: FlexFit.tight,
+        child: FractionallySizedBox(
+            heightFactor: 1,
+            child: Center(
+                child: Stack(
+              children: <Widget>[
+                Container(
+                  height: 300,
+                  width: 270,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Color(0xFF0DA2CA), width: 7),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(5),
+                      ),
+                      color: Color(0xFF1D1D1D)),
+                  margin: EdgeInsets.only(bottom: 10.0, top: 10.0),
+                  padding: new EdgeInsets.only(
+                      bottom: 10.0, left: 0.0, right: 15.0, top: 30.0),
+                  child: LineChart(
+                    showAvg ? avgData() : mainData(),
+                  ),
+                ),
+                SizedBox(
+                  width: 60,
+                  height: 34,
+                  child: FlatButton(
+                    onPressed: () {
+                      setState(() {
+                        showAvg = !showAvg;
+                      });
+                    },
+                    child: Container(),
+                    // Text(
+                    //   'avg',
+                    //   style: TextStyle(
+                    //       fontSize: 12,
+                    //       color:
+                    //           showAvg ? Colors.white.withOpacity(0.5) : Colors.white),
+                    // ),
+                  ),
+                ),
+              ],
+            ))));
   }
 
   LineChartData mainData() {
     return LineChartData(
+
       lineTouchData: LineTouchData(enabled: false),
+
       gridData: FlGridData(
         show: true,
         drawVerticalLine: true,

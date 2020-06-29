@@ -9,6 +9,7 @@ class DataPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: Column(
+
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           RaisedButton(
