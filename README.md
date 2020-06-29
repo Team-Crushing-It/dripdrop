@@ -3,9 +3,7 @@
 Know your water and how much you use. Challenge your friends to save every drop! 
 
 
-![1](/assets/logo.png)
 ![2](https://github.com/Team-Crushing-It/dripdrop/blob/master/assets/dripdropgif.gif)
-![2](/assets/presentation.png)
 
 ## Inspiration
 
@@ -19,6 +17,8 @@ See our demo @ https://youtu.be/D5T3_cqTmkw
 Our design is a continuous panel where you can swipe left or right to focus on your water data or how your usage compares with your friends!
 
 It is split into three pages
+
+![2](/assets/presentation.png)
 
 ## Home Page
 
