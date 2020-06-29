@@ -54,7 +54,6 @@ class _RealtimeDataState extends State<RealtimeData> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFFC4C4C4),
       margin: const EdgeInsets.only(top: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -63,20 +62,26 @@ class _RealtimeDataState extends State<RealtimeData> {
           Container(
             width: 160,
             height: 80,
-            color: Colors.blue,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 3),
                   child: Text("powder of hydrogen", style: TextStyle(fontFamily: "Nasalization")),
                   color: Theme.of(context).accentColor,
                 ),
                 Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 2.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("8.3", style: TextStyle(fontFamily: "Nasalization", fontSize: 40)),
-                      Text("pH", style: TextStyle(fontFamily: "Nasalization", fontSize: 25))
+                      Padding(
+                        child: Text("8.3", style: TextStyle(fontFamily: "Software Tester 7", fontSize: 40)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Text("pH", style: TextStyle(fontFamily: "Software Tester 7", fontSize: 25)),
+                      )
                     ],
                   ),
                   color: Theme.of(context).splashColor,
@@ -87,7 +92,26 @@ class _RealtimeDataState extends State<RealtimeData> {
           Container(
             width: 160,
             height: 80,
-            color: Colors.yellow,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 3),
+                  child: Text("temperature", style: TextStyle(fontFamily: "Nasalization")),
+                  color: Theme.of(context).accentColor,
+                ),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("20", style: TextStyle(fontFamily: "Software Tester 7", fontSize: 40)),
+                      Text("°C", style: TextStyle(fontFamily: "Software Tester 7", fontSize: 25))
+                    ],
+                  ),
+                  color: Theme.of(context).splashColor,
+                ),
+              ],
+            ),
           ),
         ],
       ),
