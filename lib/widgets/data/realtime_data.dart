@@ -54,13 +54,41 @@ class _RealtimeDataState extends State<RealtimeData> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Color(0xFFC4C4C4),
       margin: const EdgeInsets.only(top: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           //insert streambuilder here
-          Container(width: 140, height: 80, color: Colors.blue),
-          Container(width: 140, height: 80, color: Colors.yellow),
+          Container(
+            width: 160,
+            height: 80,
+            color: Colors.blue,
+            child: Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: Text("powder of hydrogen", style: TextStyle(fontFamily: "Nasalization")),
+                  color: Theme.of(context).accentColor,
+                ),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("8.3", style: TextStyle(fontFamily: "Nasalization", fontSize: 40)),
+                      Text("pH", style: TextStyle(fontFamily: "Nasalization", fontSize: 25))
+                    ],
+                  ),
+                  color: Theme.of(context).splashColor,
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: 160,
+            height: 80,
+            color: Colors.yellow,
+          ),
         ],
       ),
     );
