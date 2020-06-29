@@ -10,9 +10,8 @@ class Alert extends StatelessWidget {
           margin: const EdgeInsets.only(top: 20.0),
           width: 250,
           height: 70,
-          color: Colors.blue,
           //Insert goodies here
-          child: null,
+          child: Image.asset("usage-alert.png"),
         ),
         Container(
           margin: const EdgeInsets.only(top: 10.0),
