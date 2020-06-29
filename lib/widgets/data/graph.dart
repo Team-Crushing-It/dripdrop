@@ -33,9 +33,9 @@ class _GraphState extends State<Graph> {
           height: 300,
           width: 270,
           decoration: BoxDecoration(
-              border: Border.all(color: Colors.black, width: 3),
+              border: Border.all(color: Color(0xFF0DA2CA), width: 7),
               borderRadius: BorderRadius.all(
-                Radius.circular(18),
+                Radius.circular(5),
               ),
               color: Color(0xFF1D1D1D)),
           margin: EdgeInsets.only(bottom: 10.0, top: 10.0),
