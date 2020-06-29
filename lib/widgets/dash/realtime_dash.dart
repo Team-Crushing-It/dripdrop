@@ -15,7 +15,7 @@ class _RealtimeDashState extends State<RealtimeDash> {
     return Container(
       margin: const EdgeInsets.only(top: 10.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           //insert streambuilder here
           Container(
