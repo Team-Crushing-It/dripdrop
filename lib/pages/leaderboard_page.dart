@@ -4,9 +4,7 @@ import 'package:dripdrop/widgets/leaderboard/leaderboard.dart';
 class LeaderboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      body: Leaderboard(),
-    );
+    return Leaderboard();
+    
   }
 }

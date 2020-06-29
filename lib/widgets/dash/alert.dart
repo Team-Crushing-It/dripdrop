@@ -11,11 +11,11 @@ class Alert extends StatelessWidget {
               width: 250,
               height: 70,
               //Insert goodies here
-              child: Image.asset("usage-alert.png")),
+              child: Image(image: AssetImage("assets/usage-alert.png")),),
           Container(
             margin: const EdgeInsets.only(top: 10.0),
             width: 250,
-            height: 150,
+            height: 100,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(3),
               border: Border.all(
@@ -27,7 +27,7 @@ class Alert extends StatelessWidget {
             //Insert goodies here
             child: Text(
               "Your usage increased by 12% this month, exceeding the local average by 2234 L",
-              style: TextStyle(fontFamily: "Nasalization", color: Theme.of(context).accentColor, fontSize: 19),
+              style: TextStyle(fontFamily: "Nasalization", color: Theme.of(context).accentColor, fontSize: 14),
             ),
           ),
         ],

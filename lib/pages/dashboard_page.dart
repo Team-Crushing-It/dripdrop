@@ -4,9 +4,7 @@ import 'package:dripdrop/widgets/dash/dash.dart';
 class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      body: Column(
+    return Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Profile(),
@@ -14,7 +12,7 @@ class DashboardPage extends StatelessWidget {
           Twitter(),
           RealtimeDash(),
         ],
-      ),
+      
     );
   }
 }

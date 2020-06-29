@@ -8,8 +8,6 @@ import '../globals.dart' as globals;
 
 import 'package:flutter/services.dart';
 
-
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -18,39 +16,32 @@ class HomePage extends StatefulWidget {
 final databaseReference = Firestore.instance;
 
 class _HomePageState extends State<HomePage> {
-  PageController _controller = PageController(initialPage: 1, viewportFraction: 0.8);
-
+  PageController _controller =
+      PageController(initialPage: 1, viewportFraction: 0.8);
 
   @override
   void initState() {
     super.initState();
     print("yo");
 
-    databaseReference
-        .collection("waterUsage")
-        .orderBy('date')
-        .getDocuments()
-        .then((QuerySnapshot snapshot) {
-      snapshot.documents.forEach((f) {
-        int a = f.data["waterused"];
-        globals.tempUsageNumbers.add(a);
-      });
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).backgroundColor,
         body: Container(
-      child: PageView(
-        controller: _controller,
-        children: [
-          DataPage(),
-          DashboardPage(),
-          LeaderboardPage(),
-        ],
-      ),
-    ));
+          height: MediaQuery.of(context).size.height,
+          // width: MediaQuery.of(context).size.width * 3,
+          child: PageView(
+              controller: _controller,
+              children: [
+                DataPage(),
+                DashboardPage(),
+                LeaderboardPage(),
+              ],
+            ),
+        ),
+        );
   }
 }
