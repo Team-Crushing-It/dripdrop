@@ -5,8 +5,9 @@ import 'package:dripdrop/widgets/data/data.dart';
 class DataPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
+    return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TimeSelect(),

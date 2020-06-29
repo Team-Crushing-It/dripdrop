@@ -16,6 +16,8 @@ class _LeaderboardState extends State<Leaderboard> {
   Widget build(BuildContext context) {
     print("hitherebuckeroo");
     return Scaffold(
+       backgroundColor: Theme.of(context).backgroundColor,
+      
         body: new StreamBuilder<QuerySnapshot>(
       stream: Firestore.instance
           .collection('leaderboard')
