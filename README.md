@@ -1,6 +1,7 @@
-# Know your water and how much you use. Challenge your friends to save every drop! 
+# dripdrop - where every 💧 counts!
 
-dripdrop - where every 💧 counts!
+Know your water and how much you use. Challenge your friends to save every drop! 
+
 
 ![1](/assets/logo.png)
 ![2](/assets/opening.png)
