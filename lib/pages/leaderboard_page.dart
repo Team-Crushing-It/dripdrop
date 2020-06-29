@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dripdrop/widgets/leaderboard/leaderboard.dart';
+import 'package:dripdrop/widgets/leaderboard/leaderboard2.dart';
 
 class LeaderboardPage extends StatelessWidget {
   @override

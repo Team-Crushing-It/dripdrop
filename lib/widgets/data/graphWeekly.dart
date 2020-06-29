@@ -3,19 +3,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:dripdrop/widgets/data/fake_chart_series.dart';
-import '../../globals.dart' as globals;
 
 class Graph extends StatefulWidget {
   @override
   _GraphState createState() => _GraphState();
 }
 
-final databaseReference = Firestore.instance;
-var temperatureValue, ecValue, tdsValue, phValue;
-List<int> usageNumbers;
-List<Timestamp> usageDates;
+class _GraphState extends State<Graph> with FakeChartSeries {
+  final databaseReference = Firestore.instance;
+  var temperatureValue, ecValue, tdsValue, phValue;
+  List<int> usageNumbers = [];
+  List<Timestamp> usageDates = [];
 
-class _GraphState extends State<Graph> {
   List<Color> gradientColors = [
     const Color(0xff23b6e6),
     const Color(0xff02d39a),
@@ -24,9 +23,78 @@ class _GraphState extends State<Graph> {
   bool showAvg = false;
 
   @override
+  void initState() {
+    super.initState();
+    databaseReference
+        .collection("realtimePoints")
+        .getDocuments()
+        .then((QuerySnapshot snapshot) {
+      snapshot.documents.forEach((f) {
+        Map<String, dynamic> codedData = f.data;
+        temperatureValue = codedData["temperature"];
+        ecValue = codedData["EC"];
+        tdsValue = codedData["TDS"];
+        phValue = codedData["pH"];
+        print(temperatureValue);
+        print(ecValue);
+        print(tdsValue);
+        print(phValue);
+      });
+    });
+
+    usageDates = [];
+    databaseReference
+        .collection("waterUsage")
+        .orderBy('date')
+        .getDocuments()
+        .then((QuerySnapshot snapshot) {
+      snapshot.documents.forEach((f) {
+        Map<String, dynamic> codedData = f.data;
+        usageNumbers.add(codedData["waterused"]);
+        usageDates.add(codedData["date"]);
+      });
+    });
+    print(usageNumbers);
+    //lengthOfUsageNumbers = usageNumbers.length;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    print(globals.tempUsageNumbers);
-    usageNumbers = globals.tempUsageNumbers;
+    usageNumbers = [
+      500,
+      195,
+      461,
+      420,
+      579,
+      206,
+      455,
+      223,
+      688,
+      315,
+      236,
+      339,
+      489,
+      598,
+      327,
+      391,
+      263,
+      523,
+      674,
+      585,
+      508,
+      394,
+      311,
+      283,
+      424,
+      299,
+      533,
+      489,
+      674,
+      514,
+      585,
+      638,
+      417
+    ];
     return Stack(
       children: <Widget>[
         Container(
