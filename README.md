@@ -12,7 +12,7 @@ Challenged by the #Hack20 Flutter Hackathon, Team Crushing it designed this app 
 ![2](/assets/opening.png)
 ![2](/assets/presentation.png)
 
-Our design is feels like continuous panel where you can swipe left or right to focus on your water data or how your usage compares with your friends!
+Our design is a continuous panel where you can swipe left or right to focus on your water data or how your usage compares with your friends!
 
 It is split into three pages
 
