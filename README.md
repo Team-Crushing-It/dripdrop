@@ -8,6 +8,8 @@ Dripdrop makes transparent your water quality, your usage and the impact you hav
 
 Challenged by the #Hack20 Flutter Hackathon, Team Crushing it designed this app to empower consumers with data and to make way for the cyberpunk future built with retro aesthetic. 
 
+See our demo @ https://youtu.be/D5T3_cqTmkw
+
 ## Our Design
 ![2](/assets/opening.png)
 ![2](/assets/presentation.png)
