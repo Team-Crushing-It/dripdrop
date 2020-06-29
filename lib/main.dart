@@ -98,7 +98,7 @@ class _AppState extends State<App> {
             headline6: TextStyle(
                 fontFamily: "Software Tester 7",
                 color: Colors.black,
-                fontSize: 30)),
+                fontSize: 20)),
       ),
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {

@@ -113,6 +113,7 @@ class _LoginFormState extends State<LoginForm> {
 
                     //Login Bbutton ===============================================================
                     Container(
+                      width: 140,
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: Theme.of(context).accentColor,

@@ -64,6 +64,8 @@ flutter:
     - assets/logo.png
     - assets/logo-stacked.png
     - assets/usage-alert.png
+    - assets/avatar.png
+    - assets/twitter.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
