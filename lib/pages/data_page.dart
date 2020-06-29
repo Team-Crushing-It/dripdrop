@@ -80,6 +80,7 @@ class ThirdPage extends StatelessWidget {
           children: [
             TimeSelect(),
             Graph(),
+            MonthlyUsage(),
             RealtimeData(),
           ],
         ));
