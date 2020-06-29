@@ -7,14 +7,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 
-class CardSwipeDemo extends StatefulWidget {
+class DropPage extends StatefulWidget {
   // static String routeName = '/misc/card_swipe';
 
   @override
-  _CardSwipeDemoState createState() => _CardSwipeDemoState();
+  _DropPageState createState() => _DropPageState();
 }
 
-class _CardSwipeDemoState extends State<CardSwipeDemo> {
+class _DropPageState extends State<DropPage> {
   List<String> fileNames;
 
   @override
