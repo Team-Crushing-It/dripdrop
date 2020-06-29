@@ -6,8 +6,9 @@ import 'authentication/authentication_bloc.dart';
 import 'authentication/authentication_event.dart';
 import 'authentication/authentication_state.dart';
 import 'pages/login_page.dart';
-import 'pages/home_page.dart';
 import 'package:dripdrop/pages/drop_page.dart';
+import 'package:dripdrop/pages/home_page.dart';
+
 
 import 'package:flutter/services.dart';
 
@@ -105,7 +106,7 @@ class _AppState extends State<App> {
             return Container();
           }
           if (state is AuthenticationSuccess) {
-            // return HeroAnimation();
+            // return DropPage();
             return HomePage();
           }
           if (state is AuthenticationFailure) {
