@@ -1,18 +1,19 @@
-# dripdrop - where every 💧 counts!
+# Know your water and how much you use. Challenge your friends to save every drop! 
+
+dripdrop - where every 💧 counts!
 
 ![1](/assets/logo.png)
+![2](/assets/opening.png)
+![2](/assets/presentation.png)
 
-## What is dripdrop?
-
-Dripdrop makes transparent your water quality, your usage and the impact you have on the world through a sensor and a  mobile app. Providing real-time feedback about the pH, temp, EC and TDS, you can challenge your friends to save every drop!
+## Inspiration
 
 Challenged by the #Hack20 Flutter Hackathon, Team Crushing it designed this app to empower consumers with data and to make way for the cyberpunk future built with retro aesthetic. 
 
 See our demo @ https://youtu.be/D5T3_cqTmkw
 
 ## Our Design
-![2](/assets/opening.png)
-![2](/assets/presentation.png)
+
 
 Our design is a continuous panel where you can swipe left or right to focus on your water data or how your usage compares with your friends!
 
