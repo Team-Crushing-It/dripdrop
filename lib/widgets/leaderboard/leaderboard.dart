@@ -15,68 +15,107 @@ class _LeaderboardState extends State<Leaderboard> {
   @override
   Widget build(BuildContext context) {
     print("hitherebuckeroo");
-    return Container(
-      color: Theme.of(context).backgroundColor,
-      child: new StreamBuilder<QuerySnapshot>(
-        stream: Firestore.instance.collection('leaderboard').orderBy('score').snapshots(),
-        builder: (
-          BuildContext context,
-          AsyncSnapshot<QuerySnapshot> snapshot,
-        ) {
-          if (!snapshot.hasData) return new Text('Loading...');
-          currentScore = 0;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(8),
+          color: Theme.of(context).accentColor,
+          child: Text("USAGE LEADERBOARD", style: TextStyle(fontFamily: "Software Tester 7", fontSize: 30),),
+        ),
+        Container(
+          color: Theme.of(context).backgroundColor,
+          child: new StreamBuilder<QuerySnapshot>(
+            stream: Firestore.instance.collection('leaderboard').orderBy('score').limit(10).snapshots(),
+            builder: (
+              BuildContext context,
+              AsyncSnapshot<QuerySnapshot> snapshot,
+            ) {
+              if (!snapshot.hasData) return new Text('Loading...');
+              currentScore = 0;
 
-          return Container(
-            margin: const EdgeInsets.symmetric(vertical: 30.0),
-            padding: const EdgeInsets.all(8.0),
-            decoration: BoxDecoration(
-              border: Border.all(color: Theme.of(context).accentColor, width: 5),
-            ),
-            child: new ListView(
-              children: snapshot.data.documents.map((DocumentSnapshot document) {
-                addit();
-                return new Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.all(0.0),
-                      color: Colors.cyanAccent,
-                      width: 90.0,
-                      height: 80.0,
-                      child: Text(
-                        currentScore.toString(),
-                        style: TextStyle(fontFamily: "Wheaton", fontSize: 23),
-                      ),
+              return Container(
+                padding: const EdgeInsets.all(9.0),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Theme.of(context).accentColor, width: 5),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          height: 40.0,
+                          child: Text(
+                            "RANK",
+                            style: TextStyle(fontFamily: "Wheaton", fontSize: 23, color: Color(0xFFdbf24a)),
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                        Container(
+                          height: 40.0,
+                          child: Text(
+                            "NAME",
+                            style: TextStyle(fontFamily: "Wheaton", fontSize: 23, color: Color(0xFFdbf24a)),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Container(
+                          height: 40.0,
+                          child: Text(
+                            "SCORE",
+                            style: TextStyle(fontFamily: "Wheaton", fontSize: 23, color: Color(0xFFdbf24a)),
+                            textAlign: TextAlign.right,
+                          ),
+                        ),
+                      ],
                     ),
-                    Container(
-                      padding: const EdgeInsets.all(0.0),
-                      color: Colors.blueAccent,
-                      width: 90.0,
-                      height: 80.0,
-                      child: Text(
-                        document['name'],
-                        style: TextStyle(fontFamily: "Wheaton", fontSize: 23),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(0.0),
-                      color: Colors.orangeAccent,
-                      width: 90.0,
-                      height: 80.0,
-                      child: Text(
-                        document['score'].toString(),
-                        style: TextStyle(fontFamily: "Wheaton", fontSize: 23),
-                      ),
+                    new Column(
+                      children: snapshot.data.documents.map((DocumentSnapshot document) {
+                        addit();
+                        return new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              height: 40.0,
+                              child: Text(
+                                currentScore.toString(),
+                                style: TextStyle(fontFamily: "Wheaton", fontSize: 23, color: _getColor(currentScore)),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                            Container(
+                              height: 40.0,
+                              child: Text(
+                                document['name'],
+                                style: TextStyle(fontFamily: "Wheaton", fontSize: 23, color: _getColor(currentScore)),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Container(
+                              height: 40.0,
+                              child: Text(
+                                document['score'].toString(),
+                                style: TextStyle(fontFamily: "Wheaton", fontSize: 23, color: _getColor(currentScore)),
+                                textAlign: TextAlign.right,
+                              ),
+                            ),
+                          ],
+                        );
+                      }).toList(),
                     ),
                   ],
-                );
-              }).toList(),
-            ),
-          );
-        },
-      ),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 
@@ -88,23 +127,35 @@ class _LeaderboardState extends State<Leaderboard> {
 //title: new Text(document['name']),
 //subtitle: new Text('${document['score']} points'),
 
-RichText _recolorRankText(String text) {
-  var words = text.split("\n");
-  return RichText(
-    text: TextSpan(style: TextStyle(fontFamily: "Wheaton", fontSize: 23), children: [
-      TextSpan(text: "RANK", style: TextStyle(color: Color(0xFFdbf24a))),
-      TextSpan(text: words[0], style: TextStyle(color: Color(0xFFFFFFFF))),
-      TextSpan(text: words[1], style: TextStyle(color: Color(0xFFeb5757))),
-      TextSpan(text: words[2], style: TextStyle(color: Color(0xFFf39a4a))),
-      TextSpan(text: words[3], style: TextStyle(color: Color(0xFFf2c94d))),
-      TextSpan(text: words[4], style: TextStyle(color: Color(0xFFf2c94d))),
-      TextSpan(text: words[5], style: TextStyle(color: Color(0xFFf2c94d))),
-      TextSpan(text: words[6], style: TextStyle(color: Color(0xFF70cf97))),
-      TextSpan(text: words[7], style: TextStyle(color: Color(0xFF27ae61))),
-      TextSpan(text: words[8], style: TextStyle(color: Color(0xFF219652))),
-      TextSpan(text: words[9], style: TextStyle(color: Color(0xFF2c9cdb))),
-      TextSpan(text: words[10], style: TextStyle(color: Color(0xFFdbf24a))),
-      TextSpan(text: words[11], style: TextStyle(color: Color(0xFFdbf24a))),
-    ]),
-  );
+Color _getColor(int index) {
+  if (index == 1) {
+    return Color(0xFFFFFFFF);
+  }
+  if (index == 2) {
+    return Color(0xFFeb5757);
+  }
+  if (index == 3) {
+    return Color(0xFFf39a4a);
+  }
+  if (index == 4) {
+    return Color(0xFFf2c94d);
+  }
+  if (index == 5) {
+    return Color(0xFFf2c94d);
+  }
+  if (index == 6) {
+    return Color(0xFFf2c94d);
+  }
+  if (index == 7) {
+    return Color(0xFF70cf97);
+  }
+  if (index == 8) {
+    return Color(0xFF27ae61);
+  }
+  if (index == 9) {
+    return Color(0xFF219652);
+  }
+  if (index == 10) {
+    return Color(0xFF2c9cdb);
+  }
 }
