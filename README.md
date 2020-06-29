@@ -1,4 +1,4 @@
-# Dripdrop - where every 💧 counts!
+# dripdrop - where every 💧 counts!
 
 ![1](/assets/logo.png)
 
