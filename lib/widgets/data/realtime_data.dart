@@ -61,7 +61,7 @@ class _RealtimeDataState extends State<RealtimeData> {
           //insert streambuilder here
           Container(
             width: 160,
-            height: 80,
+            height: 30,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
