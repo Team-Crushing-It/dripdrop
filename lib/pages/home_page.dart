@@ -6,6 +6,10 @@ import 'package:dripdrop/pages/dashboard_page.dart';
 import 'package:dripdrop/pages/leaderboard_page.dart';
 import '../globals.dart' as globals;
 
+import 'package:flutter/services.dart';
+
+
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -15,6 +19,7 @@ final databaseReference = Firestore.instance;
 
 class _HomePageState extends State<HomePage> {
   PageController _controller = PageController(initialPage: 1, viewportFraction: 0.8);
+
 
   @override
   void initState() {
