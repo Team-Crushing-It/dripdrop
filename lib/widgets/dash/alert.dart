@@ -12,7 +12,6 @@ class Alert extends StatelessWidget {
           height: 70,
           color: Colors.purple,
           //Insert goodies here
-          child: Image(image: AssetImage("usage-alert.png")),
         ),
         Container(
           margin: const EdgeInsets.only(top: 10.0),
@@ -25,7 +24,10 @@ class Alert extends StatelessWidget {
                 width: 5,
               )),
           //Insert goodies here
-          child: Text("Your usage increased by 12% this month, exceeding the local average by 2234 L", style: TextStyle(fontFamily: "Nasalization", color: Theme.of(context).accentColor),),
+          child: Text(
+            "Your usage increased by 12% this month, exceeding the local average by 2234 L",
+            style: TextStyle(fontFamily: "Nasalization", color: Theme.of(context).accentColor),
+          ),
         ),
       ],
     ));
