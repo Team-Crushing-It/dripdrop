@@ -71,20 +71,15 @@ class _RealtimeDataState extends State<RealtimeData> {
                   color: Theme.of(context).accentColor,
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 2.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        child: Text("8.3", style: TextStyle(fontFamily: "Software Tester 7", fontSize: 40)),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Text("pH", style: TextStyle(fontFamily: "Software Tester 7", fontSize: 25)),
-                      )
+                      Text("8.3", style: TextStyle(fontFamily: "Software Tester 7", fontSize: 40)),
+                      Text("pH", style: TextStyle(fontFamily: "Software Tester 7", fontSize: 25))
                     ],
                   ),
                   color: Theme.of(context).splashColor,
+                  padding: EdgeInsets.symmetric(horizontal: 3),
                 ),
               ],
             ),
@@ -108,6 +103,7 @@ class _RealtimeDataState extends State<RealtimeData> {
                       Text("°C", style: TextStyle(fontFamily: "Software Tester 7", fontSize: 25))
                     ],
                   ),
+                  padding: EdgeInsets.symmetric(horizontal: 3),
                   color: Theme.of(context).splashColor,
                 ),
               ],
