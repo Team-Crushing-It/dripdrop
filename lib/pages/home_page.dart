@@ -11,8 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  PageController _controller =
-      PageController(initialPage: 1, viewportFraction: 0.8);
+  PageController _controller = PageController(initialPage: 1, viewportFraction: 0.8);
 
   @override
   void initState() {
@@ -22,15 +21,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      child: PageView(
-        controller: _controller,
-        children: [
-          DataPage(),
-          DashboardPage(),
-          LeaderboardPage(),
-        ],
+      backgroundColor: Colors.black,
+      body: Container(
+        child: PageView(
+          controller: _controller,
+          children: [
+            DataPage(),
+            DashboardPage(),
+            LeaderboardPage(),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }
