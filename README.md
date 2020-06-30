@@ -1,6 +1,6 @@
 # dripdrop - where every 💧 counts!
 
-Know your water and how much you use. Challenge your friends to save every drop! 
+Know your water quality and how much you use. Challenge your friends to save every drop! 
 
 
 ![2](https://github.com/Team-Crushing-It/dripdrop/blob/master/assets/dripdropgif.gif)
