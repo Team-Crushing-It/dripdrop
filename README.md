@@ -9,7 +9,7 @@ Know your water quality and how much you use. Challenge your friends to save eve
 
 Challenged by the #Hack20 Flutter Hackathon, Team Crushing it designed this app to empower consumers with data and to make way for the cyberpunk future built with retro aesthetic. 
 
-See our demo @ https://youtu.be/D5T3_cqTmkw
+See our live demo and hackathon submittal @ https://youtu.be/D5T3_cqTmkw
 
 ## Our Design
 
