@@ -13,6 +13,7 @@ See our demo @ https://youtu.be/D5T3_cqTmkw
 
 ## Our Design
 
+Built with 💗 on Flutter and Firebase, this app uses realtime water data to empower the consumer with a clear understanding of their water quality and usage.
 
 Our design is a continuous panel where you can swipe left or right to focus on your water data or how your usage compares with your friends!
 
@@ -36,12 +37,8 @@ Swiping to the left, you can see detailed information about your water, such as 
 
 [5](/assets/leaderboardpage.png)
 
-The best part about this app is that it lets you challenge your friends to see who can save the most water. No one is taking bets over here (officially), some of us may be a little too competitive, but it's all in good cheer and opens up your eyes to how your water usage affects the community. It's a pandemic, who needs to take showers??
-
-The Pacman look was the most enjoyable part of this project!
+Our leaderboard tracks your usage real-time and encourages you to save every drop! Even though it is a pandemic, don't get too competitive and start skipping showers!
 
 ## Open-Source
 
-Feel free to use this as design inspriation and we are happy to share with you what we learned ! Thanks for sharing this treat with Team Crushing it
-
-Built with 💗 on Flutter and Firebase
+Feel free to use this design as inspriation! We are happy to share with you what we learned ! Thanks for sharing this treat with Team Crushing it
