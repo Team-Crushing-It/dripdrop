@@ -21,21 +21,23 @@ It is split into three pages
 
 ![2](/assets/presentation.png)
 
-## Home Page
+![3](/assets/explanation.png)
 
-[3](/assets/homepage.png)
+
+## Home Page
+!~[3](/assets/homepage.png)
 
 Our Home Page gives a quick overview, gives you feedback about your water usage, shares relevant news stories about water and has a view of the realtime data points regarding your water.
 
 ## Data Page
 
-[4](/assets/Data.png)
+![4](/assets/Data.png)
 
 Swiping to the left, you can see detailed information about your water, such as the monthly usage, the TDS and EC. 
 
 ## Leaderboard Page
 
-[5](/assets/leaderboardpage.png)
+![5](/assets/leaderboardpage.png)
 
 Our leaderboard tracks your usage real-time and encourages you to save every drop! Even though it is a pandemic, don't get too competitive and start skipping showers!
 
