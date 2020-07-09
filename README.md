@@ -13,10 +13,8 @@ See our live demo and hackathon submittal @ https://youtu.be/D5T3_cqTmkw
 
 ## Our Design
 
-Built with 💗 on Flutter and Firebase, this app uses realtime water data to empower the consumer with a clear understanding of their water quality and usage.
+Built with 💗 on Flutter, Firebase and RPi, this app uses realtime water data to empower the consumer with a clear understanding of their water quality and usage.
 
-
-Our hardware design and technology stack employs Flutter as the front-end, Google Cloud Platform's Firestore as the back-end and we used an RPi to connect our sensors.
 ![3](/assets/explanation.png)
 
 Our design is a continuous panel where you can swipe left or right to focus on your water data or how your usage compares with your friends!
