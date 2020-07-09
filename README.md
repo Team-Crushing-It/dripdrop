@@ -17,7 +17,7 @@ Built with 💗  on Flutter, Firebase and RPi, this app uses realtime water data
 
 ![3](/assets/explanation.png)
 
-Our design is a continuous panel where you can swipe left or right to focus on your water data or how your usage compares with your friends!
+Our user interface design is a continuous panel where you can swipe left or right to focus on your water data or how your usage compares with your friends!
 
 It is split into three pages
 
