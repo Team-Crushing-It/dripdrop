@@ -94,8 +94,8 @@ class _LoginFormState extends State<LoginForm> {
                     ),
                     Switch(
                       value: true,
-                      activeColor: Theme.of(context).accentColor,
-                      inactiveThumbColor: Theme.of(context).accentColor,
+                      activeColor: Theme.of(context).colorScheme.secondary,
+                      inactiveThumbColor: Theme.of(context).colorScheme.secondary,
                       activeTrackColor: Theme.of(context).cardColor,
                       inactiveTrackColor: Theme.of(context).cardColor,
                       onChanged: (bool boolean) {},
