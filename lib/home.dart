@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
             SizedBox(
               width: 60,
               height: 34,
-              child: FlatButton(
+              child: textButton(
                 onPressed: () {
                   setState(() {
                     showAvg = !showAvg;
@@ -310,4 +310,6 @@ class _HomePageState extends State<HomePage> with FakeChartSeries {
       ],
     );
   }
+
+  textButton({Null Function() onPressed, Text child}) {}
 }

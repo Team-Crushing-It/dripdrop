@@ -4,7 +4,7 @@ Know your water quality, how much you use and challenge your friends to save eve
 
 
 ![1](https://github.com/Team-Crushing-It/dripdrop/blob/master/assets/dripdropgif.gif)
-
+json
 ## Inspiration
 
 Challenged by the #Hack20 Flutter Hackathon, Team Crushing it designed this app to empower consumers with data and to make way for the cyberpunk future built with retro aesthetic. 
